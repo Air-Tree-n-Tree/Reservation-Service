@@ -60,7 +60,7 @@
 
 | Field | Type | Description
 | ----- | ---- | ---
-| startDate | `Number` | The number days since 2000/1/1
+| startDate | `Number` | The number of days since 2000/1/1
 | length | `Number` | The number of nights for the reservation
 
 ---
