@@ -23,7 +23,7 @@
 | ----- | ---- | ---------- |
 | _id | `String` | 
 | roomId | `String` | 
-| reservations | [`Reservation`](#Reservation)`[]` | An array of [reservation](#Reservation) objects. |
+| reservations | [`Reservation[]`](#Reservation) | An array of [reservation](#Reservation) objects. |
 | pricesPerGuests | `Number[]` | An array of prices. <br> The index corresponds to the number of guests. <br>The value corresponds to the price per night. |
 | minNights | `Number` | Minimum number of nights allowed for a reservation.
 | maxNights | `Number` | Maximum number of nights allowed for a reservation
