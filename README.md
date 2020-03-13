@@ -35,7 +35,7 @@
 ```
     {
         "_id": "123456789abcdef",
-        "roomId" "fedcba987654321"
+        "roomId" "fedcba987654321",
         "reservations": [
             {
                 "startDate": 7376,
