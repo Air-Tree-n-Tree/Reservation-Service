@@ -26,10 +26,10 @@
 | reservations | [`Reservation[]`](#Reservation) | An array of [reservation](#Reservation) objects. |
 | pricesPerGuests | `Number[]` | An array of prices. <br> The index corresponds to the number of guests. <br>The value corresponds to the price per night. |
 | minNights | `Number` | Minimum number of nights allowed for a reservation.
-| maxNights | `Number` | Maximum number of nights allowed for a reservation
-| minGuests | `Number` | Minimum number of guests allowed for a reservation
-| maxGuests | `Number` | Maximum number of guests allowed for a reservation
-| maxInfants | `Number` | Maximum  number of infants allowed for a reservation
+| maxNights | `Number` | Maximum number of nights allowed for a reservation.
+| minGuests | `Number` | Minimum number of guests allowed for a reservation.
+| maxGuests | `Number` | Maximum number of guests allowed for a reservation.
+| maxInfants | `Number` | Maximum  number of infants allowed for a reservation.
 
 
 ```
@@ -60,7 +60,7 @@
 
 | Field | Type | Description
 | ----- | ---- | ---
-| startDate | `Number` | The number of days since 2000/1/1
-| length | `Number` | The number of nights for the reservation
+| startDate | `Number` | The number of days since 2000/1/1.
+| length | `Number` | The number of nights for the reservation.
 
 ---
