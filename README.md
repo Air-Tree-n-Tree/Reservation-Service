@@ -5,7 +5,7 @@
 ## API Spec
 
 - [Get Room Reservation Details](#get-room-reservation-details) 
-- [Create Reservation Session](#create-reservation-session)
+
 
 ## Get Room Reservation Details
 
@@ -38,7 +38,6 @@
         "roomId" "fedcba987654321"
         "reservations": [
             {
-                "reservationId": "123456789abcdef",
                 "startDate": 7376,
                 "length": 5
             },
@@ -61,7 +60,6 @@
 
 | Field | Type | Description
 | ----- | ---- | ---
-| reservationId | `String` |
 | startDate | `Number` | The number days since 2000/1/1
 | length | `Number` | The number of nights for the reservation
 
