@@ -1,5 +1,5 @@
 
-const randomValueInRange = (min, max) => (
+const valueInRange = (min, max) => (
   // The maximum is exclusive and the minimum is inclusive
   min + Math.floor(Math.random() * (max - min))
 );
@@ -11,13 +11,13 @@ const randomValueInRange = (min, max) => (
  * @param {Number} [minLength] The minimum length of the range.
  * @returns {Array<Number>} Tuple: [lowerbound, upperbound, length]
  */
-const generateRandomRange = (min, max, minLength = 1) => {
-  const lowerBound = randomValueInRange(min, max - minLength);
-  const upperBound = randomValueInRange(lowerBound + minLength, max);
+const range = (min, max, minLength = 1) => {
+  const lowerBound = valueInRange(min, max - minLength);
+  const upperBound = valueInRange(lowerBound + minLength, max);
   return [lowerBound, upperBound, upperBound - lowerBound];
 };
 
 module.exports = {
-  generateRandomRange,
-  randomValueInRange,
+  range,
+  valueInRange,
 };
