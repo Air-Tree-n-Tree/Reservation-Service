@@ -2,7 +2,10 @@ const mongoose = require('mongoose');
 const Availability = require('./models/Availability');
 const generateAvailability = require('./utils/generateAvailability');
 
-mongoose.connect('mongodb://localhost/room-reservations', (err) => {
+mongoose.connect('mongodb://localhost/room-reservations', {
+  useNewUrlParser: true,
+  useUnifiedTopology: true,
+}, (err) => {
   if (err) {
     throw new Error('Failed to connect to mongo database: room-reservations');
   }
@@ -21,7 +24,7 @@ const seedDatabase = () => {
   return Promise.all(seeds);
 };
 
-Availability.remove({}) // Clear the database
+Availability.deleteMany({}) // Clear the database
   .then(seedDatabase)
   .then(() => {
     console.log('Successfully seeded database');
