@@ -13,15 +13,11 @@ mongoose.connect('mongodb://localhost/room-reservations', {
 });
 
 const seedDatabase = () => {
-  const seeds = [];
+  const docs = [];
   for (let i = 0; i < 100; i += 1) {
-    seeds.push(new Promise((resolve, reject) => {
-      generateAvailability(i).save()
-        .then(resolve)
-        .catch(reject);
-    }));
+    docs.push(generateAvailability(i));
   }
-  return Promise.all(seeds);
+  return Availability.create(docs);
 };
 
 Availability.deleteMany({}) // Clear the database
