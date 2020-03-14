@@ -18,7 +18,7 @@ const generateAvailability = (roomId) => {
   let day = dateToDay(new Date());
   const end = day + 120;
   while (day < end) {
-    const length = random.valueInRange(1, maxNights + 1);
+    const length = random.valueInRange(minNights, maxNights + 1);
     const startDate = day + random.valueInRange(0, maxNights);
     reservations.push({
       startDate,
