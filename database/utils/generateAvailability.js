@@ -24,7 +24,7 @@ const generateAvailability = (roomId) => {
       startDate,
       length,
     });
-    day += startDate + length + 1;
+    day += length + 1;
   }
 
   return new Availabilty({
