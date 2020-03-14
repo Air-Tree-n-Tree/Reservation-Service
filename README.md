@@ -4,7 +4,7 @@
 
 ## API Spec
 
-- [Get Room Reservation Details](#get-room-reservation-details) 
+- [Get Room Reservation Details](#Get-Room-Reservation-Details)
 
 
 ## Get Room Reservation Details
