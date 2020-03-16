@@ -1,2 +1,7 @@
 node_modules
+
+# Workspace configs
 .vscode
+
+# jest coverage reports
+coverage 
