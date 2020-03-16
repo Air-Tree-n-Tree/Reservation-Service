@@ -1,4 +1,8 @@
+# Libraries
 node_modules
+
+# Bundles
+public
 
 # Workspace configs
 .vscode
