@@ -18,7 +18,7 @@ jobs:
       - checkout
       - run: sudo npm install -g eslint
       - run: npm install
-      - run: eslint '*.js?(x)' # Eslint all .js and .jsx
+      - run: npm eslint
 workflows:
   build-and-test:
     jobs:

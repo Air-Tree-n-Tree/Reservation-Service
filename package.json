@@ -6,7 +6,8 @@
   "scripts": {
     "test": "jest",
     "dev-server": "nodemon index.js",
-    "seed": "node database/seed.js"
+    "seed": "node database/seed.js",
+    "eslint": "eslint './**/*.js?(x)'"
   },
   "repository": {
     "type": "git",
