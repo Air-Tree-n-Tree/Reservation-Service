@@ -11,7 +11,17 @@ jobs:
           steps:
             - run: npm install
             - run: npm test
+  eslint:
+    executor:
+      name: node/default
+    steps:
+      - checkout
+      run: sudo npm install -g eslint
+      run: eslint '*.js?(x)' # Eslint all .js and .jsx
 workflows:
   build-and-test:
     jobs:
       - build-and-test
+  lint:
+    jobs:
+      - eslint
