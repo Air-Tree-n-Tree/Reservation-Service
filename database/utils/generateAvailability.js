@@ -1,6 +1,6 @@
+const moment = require('moment');
 const random = require('./random');
 const Availabilty = require('../models/Availability');
-const dateToDay = require('./dateToDay');
 
 const generateAvailability = (roomId) => {
   const minNights = random.valueInRange(1, 4);
@@ -15,7 +15,8 @@ const generateAvailability = (roomId) => {
   }
 
   const reservations = [];
-  let day = dateToDay(new Date());
+  const dayZero = moment('2000-01-01');
+  const day = moment().diff(dayZero, 'days');
   const end = day + 120;
   while (day < end) {
     const length = random.valueInRange(minNights, maxNights + 1);
