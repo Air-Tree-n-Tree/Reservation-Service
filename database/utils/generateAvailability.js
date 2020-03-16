@@ -16,7 +16,7 @@ const generateAvailability = (roomId) => {
 
   const reservations = [];
   const dayZero = moment('2000-01-01');
-  const day = moment().diff(dayZero, 'days');
+  let day = moment().diff(dayZero, 'days');
   const end = day + 120;
   while (day < end) {
     const length = random.valueInRange(minNights, maxNights + 1);
