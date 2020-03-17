@@ -1,13 +1,13 @@
 const path = require('path');
-const ROOT_PATH = require('../constants/ROOT_DIR');
+const { ROOT, CLIENT } = require('../constants/PATHS');
 
 module.exports = {
   mode: 'development',
-  context: path.resolve(ROOT_PATH, 'client'),
-  entry: path.resolve(ROOT_PATH, 'client', 'index.js'),
+  context: path.resolve(CLIENT),
+  entry: path.resolve(CLIENT, 'index.jsx'),
   output: {
     filename: 'bundle.js',
-    path: path.resolve(ROOT_PATH, 'public'),
+    path: path.resolve(ROOT, 'public'),
   },
   module: {
     rules: [
@@ -25,7 +25,7 @@ module.exports = {
   },
   devtool: 'inline-source-map',
   devServer: {
-    contentBase: path.resolve(ROOT_PATH, 'public'),
+    contentBase: path.resolve(ROOT, 'public'),
     port: 9000,
   },
 };
