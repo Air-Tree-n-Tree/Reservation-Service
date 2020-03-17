@@ -12,14 +12,14 @@ const reservation = (
     <Reservation />
   </Provider>
 );
-const reservationMount = document.getElementById('reservataion');
+const reservationMount = document.getElementById('reservation');
 
 const priceSummary = (
   <Provider store={store}>
     <PriceSummary />
   </Provider>
 );
-const priceSummaryMount = document.getElementById('calendar');
+const priceSummaryMount = document.getElementById('priceSummary');
 
 ReactDOM.render(reservation, reservationMount);
 ReactDOM.render(priceSummary, priceSummaryMount);
