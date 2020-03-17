@@ -24,4 +24,8 @@ module.exports = {
     extensions: ['.js', '.jsx'],
   },
   devtool: 'inline-source-map',
+  devServer: {
+    contentBase: path.resolve(ROOT_PATH, 'public'),
+    port: 9000,
+  },
 };
