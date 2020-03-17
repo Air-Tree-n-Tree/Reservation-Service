@@ -18,7 +18,7 @@ jobs:
       - checkout
       - run: sudo npm install -g eslint
       - run: npm install
-      - run: npm eslint
+      - run: npm run eslint
 workflows:
   build-and-test:
     jobs:
