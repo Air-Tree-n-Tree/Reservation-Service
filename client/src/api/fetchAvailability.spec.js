@@ -1,5 +1,7 @@
 import fetchAvailability from './fetchAvailability';
 
+jest.mock('./fetchAvailability');
+
 test('Should fetch availabilitiy data', (done) => {
   fetchAvailability(0)
     .then(({ data }) => {
