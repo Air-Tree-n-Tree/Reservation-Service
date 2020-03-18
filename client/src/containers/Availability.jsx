@@ -1,12 +1,10 @@
 import React, { Component } from 'react';
+import { connect } from 'react-redux';
 import PropTypes from 'prop-types';
-import fetchAvailability from '../api/fetchAvailability';
+
 
 class Availability extends Component {
   componentDidMount() {
-    const { roomId } = this.props;
-    fetchAvailability(roomId)
-      .then();
   }
 
   render() {
@@ -20,4 +18,8 @@ Availability.propTypes = {
   roomId: PropTypes.oneOfType([PropTypes.string, PropTypes.number]).isRequired,
 };
 
-export default Availability;
+const mapDispatchToProps = {
+
+};
+
+export default connect(null, mapDispatchToProps)(Availability);

@@ -1,9 +1,9 @@
-import fetchAvailability from './fetchAvailability';
+import requestAvailability from './requestAvailability';
 
-jest.mock('./fetchAvailability');
+jest.mock('./requestAvailability');
 
-test('Should fetch availabilitiy data', (done) => {
-  fetchAvailability(0)
+test('Should get availabilitiy data', (done) => {
+  requestAvailability(0)
     .then(({ data }) => {
       expect(data).toBeDefined();
       expect(data).toStrictEqual(
