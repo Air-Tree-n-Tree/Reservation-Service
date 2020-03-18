@@ -1,8 +1,8 @@
 import React from 'react';
 import { shallow } from 'enzyme';
-import Reservation from './Reservation';
+import Availability from './Availability';
 
 test('Component should exist', () => {
-  const reservation = shallow(<Reservation />);
+  const reservation = shallow(<Availability />);
   expect(reservation).toExist();
 });
