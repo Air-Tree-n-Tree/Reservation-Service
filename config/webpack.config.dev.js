@@ -1,13 +1,19 @@
 const path = require('path');
-const ROOT_PATH = require('../constants/ROOT_DIR');
+const HtmlWebpackPlugin = require('html-webpack-plugin');
+const { ROOT, CLIENT } = require('../constants/PATHS');
 
 module.exports = {
   mode: 'development',
-  context: path.resolve(ROOT_PATH, 'client'),
-  entry: path.resolve(ROOT_PATH, 'client', 'index.js'),
+  context: path.resolve(CLIENT),
+  entry: path.resolve(CLIENT, 'index.jsx'),
+  plugins: [
+    new HtmlWebpackPlugin({
+      template: path.resolve(CLIENT, 'templates', 'index.html'),
+    }),
+  ],
   output: {
     filename: 'bundle.js',
-    path: path.resolve(ROOT_PATH, 'public'),
+    path: path.resolve(ROOT, 'public'),
   },
   module: {
     rules: [
@@ -24,4 +30,8 @@ module.exports = {
     extensions: ['.js', '.jsx'],
   },
   devtool: 'inline-source-map',
+  devServer: {
+    contentBase: path.resolve(ROOT, 'public'),
+    port: 9000,
+  },
 };
