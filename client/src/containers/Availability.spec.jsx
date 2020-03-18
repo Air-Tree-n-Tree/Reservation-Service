@@ -3,6 +3,6 @@ import { shallow } from 'enzyme';
 import Availability from './Availability';
 
 test('Component should exist', () => {
-  const reservation = shallow(<Availability />);
+  const reservation = shallow(<Availability roomId={0} />);
   expect(reservation).toExist();
 });
