@@ -45,7 +45,8 @@ const computeReservedDays = (reservations, month) => {
     dayStatuses.fill(
       'unavailable',
       Math.max(startDate - monthStart, 0),
-      Math.min(startDate + length - monthStart, monthLength),
+      // Avoid negative values since Array.fill wraps them.
+      startDate + length - monthStart < 0 ? 0 : monthLength,
     );
     reservationIndex += 1;
   }

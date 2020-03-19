@@ -81,7 +81,7 @@ describe('Compute Reserved Days utility', () => {
       },
       {
         startDate: monthStart - 2,
-        length: 2,
+        length: 1,
       },
       {
         startDate: monthStart + month.daysInMonth(),
