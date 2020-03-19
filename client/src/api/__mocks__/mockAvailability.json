@@ -1,0 +1,66 @@
+{
+  "minNights": 2,
+  "minGuests": 2,
+  "pricesPerGuests": [
+      141,
+      175,
+      209,
+      234,
+      270,
+      296,
+      322,
+      342,
+      364,
+      395,
+      420,
+      451
+  ],
+  "_id": "5e6ed30a0090f10679164661",
+  "roomId": "0",
+  "maxNights": 13,
+  "maxGuests": 12,
+  "maxInfants": 2,
+  "reservations": [
+      {
+          "startDate": 7380,
+          "length": 2
+      },
+      {
+          "startDate": 7384,
+          "length": 6
+      },
+      {
+          "startDate": 7397,
+          "length": 11
+      },
+      {
+          "startDate": 7412,
+          "length": 11
+      },
+      {
+          "startDate": 7431,
+          "length": 2
+      },
+      {
+          "startDate": 7440,
+          "length": 5
+      },
+      {
+          "startDate": 7451,
+          "length": 8
+      },
+      {
+          "startDate": 7462,
+          "length": 5
+      },
+      {
+          "startDate": 7480,
+          "length": 4
+      },
+      {
+          "startDate": 7497,
+          "length": 12
+      }
+  ],
+  "__v": 0
+}

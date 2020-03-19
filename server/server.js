@@ -3,6 +3,12 @@ const db = require('../database');
 
 const app = express();
 
+// Allow access from client origin
+app.use('/api/reservations/', (req, res, next) => {
+  res.header('Access-Control-Allow-Origin', 'http://localhost:9000');
+  next();
+});
+
 app.get('/api/reservations/:roomId', (req, res) => {
   const { roomId } = req.params;
   db.getRoomAvailabilitiy(roomId)
