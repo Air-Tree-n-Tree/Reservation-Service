@@ -3,6 +3,8 @@ import PropTypes from 'prop-types';
 import { connect } from 'react-redux';
 import moment from 'moment';
 
+import CalendarMonth from './CalendarMonth';
+
 class Calendars extends Component {
   constructor(props) {
     super(props);
@@ -16,10 +18,12 @@ class Calendars extends Component {
     const { currentMonth } = this.state;
     return (
       <div>
-        CalendarMonth:
-        { currentMonth }
-        CalendarMonth:
-        { moment(currentMonth).add(1, 'month').format('YYYY-MM') }
+        <CalendarMonth
+          month={currentMonth}
+        />
+        <CalendarMonth
+          month={moment(currentMonth).add(1, 'month').format('YYYY-MM')}
+        />
       </div>
     );
   }
@@ -33,8 +37,8 @@ Calendars.defaultProps = {
   selectedMonth: moment().startOf('month').format('YYYY-MM'), // Default to real life month
 };
 
-const mapStateToProps = ({ selectedMonth }) => ({
-  selectedMonth,
+const mapStateToProps = ({ checkinDay }) => ({
+  selectedMonth: moment(checkinDay).format('YYYY-MM'),
 });
 
 export default connect(mapStateToProps)(Calendars);
