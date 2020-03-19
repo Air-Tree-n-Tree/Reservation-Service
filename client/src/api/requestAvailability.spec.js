@@ -1,7 +1,5 @@
 import requestAvailability from './requestAvailability';
 
-jest.mock('./requestAvailability');
-
 test('Should get availabilitiy data', (done) => {
   requestAvailability(0)
     .then(({ data }) => {
