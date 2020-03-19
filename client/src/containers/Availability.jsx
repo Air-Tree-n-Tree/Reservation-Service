@@ -11,8 +11,11 @@ class Availability extends Component {
   }
 
   render() {
+    const { loading } = this.props;
     return (
-      <div>Availability</div>
+      <div>
+        { loading ? 'Loading' : 'Calendars Component'}
+      </div>
     );
   }
 }
@@ -20,10 +23,15 @@ class Availability extends Component {
 Availability.propTypes = {
   roomId: PropTypes.oneOfType([PropTypes.string, PropTypes.number]).isRequired,
   fetch: PropTypes.func.isRequired,
+  loading: PropTypes.bool.isRequired,
 };
+
+const mapStateToProps = ({ availability }) => ({
+  loading: Object.keys(availability).length === 0,
+});
 
 const mapDispatchToProps = {
   fetch: fetchAvailability,
 };
 
-export default connect(null, mapDispatchToProps)(Availability);
+export default connect(mapStateToProps, mapDispatchToProps)(Availability);
