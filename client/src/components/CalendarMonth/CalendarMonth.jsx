@@ -8,6 +8,7 @@ import classes from './CalendarMonth.module.css';
 
 export const CalendarMonth = ({ month, reservedDays }) => {
   const startOfMonthDay = moment(month).day();
+  const startOfMonthDaysSince2000 = moment(month).diff(moment('2000-01-01'), 'days');
   return (
     <div className={classes.calendarContainer}>
       <div className={classes.monthLabel}>{moment(month).format('MMMM')}</div>
@@ -46,7 +47,7 @@ CalendarMonth.propTypes = {
 const mapStateToProps = ({ availability }, { month }) => {
   const { reservedDays, minNights } = availability;
   const startingIndex = moment(month).diff(moment('2000-01-01'), 'days')
-                        - moment().startOf('month').diff(moment('2000-01-01'), 'days');
+                      - moment().startOf('month').diff(moment('2000-01-01'), 'days');
   const endingIndex = startingIndex + moment(month).daysInMonth();
   return {
     startingIndex,

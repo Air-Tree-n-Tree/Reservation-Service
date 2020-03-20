@@ -6,3 +6,32 @@
   justify-content: center;
   align-items: center;
 }
+
+.calendarDayButton {
+  height: 100%;
+  width: 100%;
+  font-family: inherit;
+  border: 0;
+  padding: 0;
+  background-color: transparent;
+  color: inherit;
+}
+
+.calendarDayButton::-moz-focus-inner {
+  border: 0;
+}
+
+.unavailable {
+  color: rgb(185, 185, 185);
+  text-decoration: line-through;
+}
+
+.available {
+  color: rgb(46, 46, 46);
+}
+
+.checkinDay {
+  border-radius: 50%;
+  color: white;
+  background-color: black;
+}
