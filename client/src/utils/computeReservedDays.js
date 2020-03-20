@@ -1,18 +1,27 @@
 import moment from 'moment';
 
 const findFirst = (reservations, targetDate) => {
-  let [low, high] = [0, reservations.length];
+  let [low, high] = [0, reservations.length - 1];
   while (low < high) {
     const mid = low + Math.floor((high - low) / 2);
-    const { startDate } = reservations[mid];
-    if (startDate > targetDate) {
-      high = mid;
+    if (mid === 0) {
+      return mid;
+    }
+    const { startDate, length } = reservations[mid];
+    const endDate = startDate + length;
+    if (endDate < targetDate) {
+      low = mid + 1;
     } else {
-      // Grab first reservation with start date just before month start
-      if (mid === reservations.length - 1 || reservations[mid + 1].startDate > targetDate) {
+      // Grab first reservation to have dates past targetDate
+      const [previousStartDate, previousLength] = [
+        reservations[mid - 1].startDate,
+        reservations[mid - 1].length,
+      ];
+      const previousEndDate = previousStartDate + previousLength;
+      if (previousEndDate < targetDate) {
         return mid;
       }
-      low = mid;
+      high = mid;
     }
   }
   return low;
@@ -27,7 +36,6 @@ const computeReservedDays = (reservations, month) => {
   const monthStart = moment(month).diff(moment('2000-01-01'), 'days');
   const monthLength = moment(month).daysInMonth();
   const monthEnd = monthStart + monthLength;
-
   // Find relevant reservations
   let reservationIndex = findFirst(reservations, monthStart);
 
@@ -42,11 +50,12 @@ const computeReservedDays = (reservations, month) => {
     && reservations[reservationIndex].startDate < monthEnd
   ) {
     const { startDate, length } = reservations[reservationIndex];
+    const endDate = startDate + length;
     dayStatuses.fill(
       'unavailable',
       Math.max(startDate - monthStart, 0),
-      // Avoid negative values since Array.fill wraps them.
-      startDate + length - monthStart < 0 ? 0 : monthLength,
+      Math.min(endDate - monthStart, monthLength),
+
     );
     reservationIndex += 1;
   }
