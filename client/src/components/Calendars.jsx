@@ -3,7 +3,7 @@ import PropTypes from 'prop-types';
 import { connect } from 'react-redux';
 import moment from 'moment';
 
-import CalendarMonth from './CalendarMonth';
+import CalendarMonth from './CalendarMonth/CalendarMonth';
 
 export class Calendars extends Component {
   constructor(props) {
