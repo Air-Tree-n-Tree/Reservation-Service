@@ -1,6 +1,6 @@
 import moment from 'moment';
 
-const currentDay = (state = moment().startOf('day').format()) => (
+const currentDay = (state = moment().diff(moment('2000-01'), 'days')) => (
   state
 );
 
