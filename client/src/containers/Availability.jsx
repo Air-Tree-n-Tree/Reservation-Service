@@ -2,7 +2,7 @@ import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import PropTypes from 'prop-types';
 
-import Calendars from '../components/Calendars';
+import CalendarsContainer from '../components/Calendars';
 import fetchAvailability from '../store/actions/fetchAvailability.action';
 
 export class Availability extends Component {
@@ -15,7 +15,7 @@ export class Availability extends Component {
     const { loading } = this.props;
     return (
       <div>
-        { loading ? 'Loading' : <Calendars />}
+        { loading ? 'Loading' : <CalendarsContainer />}
       </div>
     );
   }

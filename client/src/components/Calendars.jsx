@@ -5,7 +5,7 @@ import moment from 'moment';
 
 import CalendarMonth from './CalendarMonth';
 
-class Calendars extends Component {
+export class Calendars extends Component {
   constructor(props) {
     super(props);
     const { selectedMonth } = this.props;
