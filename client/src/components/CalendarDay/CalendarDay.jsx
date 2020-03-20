@@ -30,13 +30,35 @@ Day.propTypes = {
   dispatchSetCheckInDay: PropTypes.func.isRequired,
 };
 
-const mapStateToProps = ({ checkInDay, currentDay }, { status, day }) => {
+const mapStateToProps = ({
+  checkInDay,
+  currentDay,
+  startingDay,
+  availability,
+  reservedDays,
+  selecting
+}, { status, day }) => {
   let realStatus = status;
+  const { minNights } = availability;
   if (day < currentDay) {
     realStatus = 'unavailable';
   }
-  if (day === checkInDay) {
-    realStatus = 'checkinDay';
+  if (selecting === 'checkin') {
+    if (realStatus === 'available') {
+      for (let i = 1; i <= minNights; i += 1) {
+        if (reservedDays[day - startingDay + i] === 'unavailable') {
+          realStatus = 'checkoutOnly';
+          break;
+        }
+      }
+    }
+  } else {
+    if (day === checkInDay) {
+      realStatus = 'checkinDay';
+    }
+    if (day > checkInDay + minNights || day < checkInDay) {
+      realStatus = 'unavailable';
+    }
   }
   return {
     status: realStatus,

@@ -26,8 +26,18 @@
   text-decoration: line-through;
 }
 
-.available {
+.available, checkoutOnly {
   color: rgb(46, 46, 46);
+}
+
+.available:hover {
+  border-radius: 50%;
+  border: 2px solid rgb(46, 46, 46);
+}
+
+.checkoutOnly:hover {
+  border-radius: 50%;
+  border: 2px solid rgb(185, 185, 185);
 }
 
 .checkinDay {

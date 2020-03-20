@@ -4,6 +4,7 @@ import reservedDays from './reducers/reservedDays.reducer';
 import checkInDay from './reducers/checkInDay.reducer';
 import currentDay from './reducers/currentDay.reducer';
 import startingDay from './reducers/startingDay.reducer';
+import selecting from './reducers/selecting.reducer';
 
 export default combineReducers({
   availability,
@@ -11,4 +12,5 @@ export default combineReducers({
   checkInDay,
   currentDay,
   startingDay,
+  selecting,
 });
