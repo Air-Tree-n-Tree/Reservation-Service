@@ -41,13 +41,12 @@ export const CalendarMonth = ({ month, reservedDays }) => {
 
 CalendarMonth.propTypes = {
   month: PropTypes.string.isRequired,
- reservedDays: PropTypes.arrayOf(PropTypes.string).isRequired,
+  reservedDays: PropTypes.arrayOf(PropTypes.string).isRequired,
 };
 
-const mapStateToProps = ({ availability }, { month }) => {
+const mapStateToProps = ({ availability, startingDay }, { month }) => {
   const { reservedDays, minNights } = availability;
-  const startingIndex = moment(month).diff(moment('2000-01-01'), 'days')
-                      - moment().startOf('month').diff(moment('2000-01-01'), 'days');
+  const startingIndex = moment(month).diff(moment('2000-01-01'), 'days') - startingDay;
   const endingIndex = startingIndex + moment(month).daysInMonth();
   return {
     startingIndex,
