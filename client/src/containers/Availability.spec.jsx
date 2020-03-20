@@ -1,13 +1,24 @@
 import React from 'react';
 import { shallow } from 'enzyme';
 
-import Availability from './Availability';
-
-jest.mock('../api/fetchAvailability');
+import { Availability } from './Availability';
 
 describe('Availibiltiy Container Component', () => {
-  const availability = shallow(<Availability roomId={0} />);
+  const mockFetch = jest.fn();
+  let availability;
+  beforeEach(() => {
+    availability = shallow(
+      <Availability
+        roomId={0}
+        fetch={mockFetch}
+        loading
+      />,
+    );
+  });
   it('should exist', () => {
     expect(availability).toExist();
+  });
+  it('should fetch availabilities', () => {
+    expect(mockFetch).toHaveBeenCalled();
   });
 });
