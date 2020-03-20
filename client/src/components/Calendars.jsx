@@ -3,7 +3,7 @@ import PropTypes from 'prop-types';
 import { connect } from 'react-redux';
 import moment from 'moment';
 
-import CalendarMonth from './CalendarMonth/CalendarMonth';
+import CalendarMonthContainer from './CalendarMonth/CalendarMonth';
 
 export class Calendars extends Component {
   constructor(props) {
@@ -18,10 +18,10 @@ export class Calendars extends Component {
     const { currentMonth } = this.state;
     return (
       <div>
-        <CalendarMonth
+        <CalendarMonthContainer
           month={currentMonth}
         />
-        <CalendarMonth
+        <CalendarMonthContainer
           month={moment(currentMonth).add(1, 'month').format('YYYY-MM')}
         />
       </div>

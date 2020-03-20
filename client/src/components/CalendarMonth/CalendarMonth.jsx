@@ -8,7 +8,7 @@ import classes from './CalendarMonth.module.css';
 
 import computeReservedDays from '../../utils/computeReservedDays';
 
-const CalendarMonth = ({ month, dayStatuses }) => {
+export const CalendarMonth = ({ month, dayStatuses }) => {
   const startOfMonthDay = moment(month).day();
   return (
     <div>
