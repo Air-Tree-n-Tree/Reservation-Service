@@ -25,12 +25,11 @@ const CalendarMonth = ({ month, dayStatuses }) => {
         }
 
         { dayStatuses.map((dayStatus, day) => (
-          <div key={moment(month).day(day).format()}>
-            <Day
-              dayOfMonth={day}
-              status={dayStatus}
-            />
-          </div>
+          <Day
+            key={moment(month).day(day).format()}
+            dayOfMonth={day}
+            status={dayStatus}
+          />
         ))}
       </div>
     </div>
