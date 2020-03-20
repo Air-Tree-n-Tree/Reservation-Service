@@ -1,3 +1,7 @@
+.calendarContainer {
+  width: min-content;
+}
+
 .calendar {
   display: grid;
   grid-template-columns: repeat(7, 50px);
@@ -8,4 +12,9 @@
 
 .calendar div {
   user-select: none;
+}
+
+.monthLabel {
+  padding-bottom: 10px;
+  text-align: center;
 }

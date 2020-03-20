@@ -11,8 +11,8 @@ import computeReservedDays from '../../utils/computeReservedDays';
 export const CalendarMonth = ({ month, dayStatuses }) => {
   const startOfMonthDay = moment(month).day();
   return (
-    <div>
-      <div>{moment(month).format('MMMM')}</div>
+    <div className={classes.calendarContainer}>
+      <div className={classes.monthLabel}>{moment(month).format('MMMM')}</div>
       <div className={classes.calendar}>
         { ['Su', 'Mo', 'Tu', 'We', 'Th', 'Fr', 'Sa'].map((dayName) => (
           <div key={dayName}>{ dayName }</div>
@@ -24,13 +24,17 @@ export const CalendarMonth = ({ month, dayStatuses }) => {
             : null
         }
 
-        { dayStatuses.map((dayStatus, day) => (
-          <Day
-            key={moment(month).day(day).format()}
-            dayOfMonth={day}
-            status={dayStatus}
-          />
-        ))}
+        { dayStatuses.map((dayStatus, day) => {
+          const formattedDay = moment(month).day(day).format();
+          return (
+            <Day
+              key={formattedDay}
+              day={formattedDay}
+              dayOfMonth={day}
+              status={dayStatus}
+            />
+          );
+        })}
       </div>
     </div>
   );
