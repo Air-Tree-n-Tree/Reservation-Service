@@ -6,9 +6,7 @@ import moment from 'moment';
 import Day from '../CalendarDay/CalendarDay';
 import classes from './CalendarMonth.module.css';
 
-import computeReservedDays from '../../utils/computeReservedDays';
-
-export const CalendarMonth = ({ month, dayStatuses }) => {
+export const CalendarMonth = ({ month, reservedDays }) => {
   const startOfMonthDay = moment(month).day();
   return (
     <div className={classes.calendarContainer}>
@@ -24,13 +22,13 @@ export const CalendarMonth = ({ month, dayStatuses }) => {
             : null
         }
 
-        { dayStatuses.map((dayStatus, day) => {
-          const formattedDay = moment(month).day(day).format();
+        { reservedDays.map((dayStatus, dayOfMonth) => {
+          const day = startOfMonthDaysSince2000 + dayOfMonth;
           return (
             <Day
-              key={formattedDay}
-              day={formattedDay}
-              dayOfMonth={day}
+              key={day}
+              day={day}
+              dayOfMonth={dayOfMonth}
               status={dayStatus}
             />
           );
@@ -42,13 +40,17 @@ export const CalendarMonth = ({ month, dayStatuses }) => {
 
 CalendarMonth.propTypes = {
   month: PropTypes.string.isRequired,
-  dayStatuses: PropTypes.arrayOf(PropTypes.string).isRequired,
+ reservedDays: PropTypes.arrayOf(PropTypes.string).isRequired,
 };
 
 const mapStateToProps = ({ availability }, { month }) => {
-  const { reservations, minNights } = availability;
+  const { reservedDays, minNights } = availability;
+  const startingIndex = moment(month).diff(moment('2000-01-01'), 'days')
+                        - moment().startOf('month').diff(moment('2000-01-01'), 'days');
+  const endingIndex = startingIndex + moment(month).daysInMonth();
   return {
-    dayStatuses: computeReservedDays(reservations, month),
+    startingIndex,
+    reservedDays: reservedDays.slice(startingIndex, endingIndex),
     minNights,
   };
 };
