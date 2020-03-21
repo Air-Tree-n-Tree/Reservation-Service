@@ -3,7 +3,7 @@ import { connect } from 'react-redux';
 import PropTypes from 'prop-types';
 import moment from 'moment';
 
-import Day from '../CalendarDay/CalendarDay';
+import CalendarDayContainer from '../CalendarDay/CalendarDay';
 import classes from './CalendarMonth.module.css';
 
 export const CalendarMonth = ({ month, reservedDays, position }) => {
@@ -29,7 +29,7 @@ export const CalendarMonth = ({ month, reservedDays, position }) => {
         { reservedDays.map((dayStatus, dayOfMonth) => {
           const day = startOfMonthDaysSince2000 + dayOfMonth;
           return (
-            <Day
+            <CalendarDayContainer
               key={day}
               day={day}
               dayOfMonth={dayOfMonth}

@@ -1,0 +1,15 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Calendar Day component should render correctly 1`] = `
+<div
+  className="available calendarDay"
+>
+  <button
+    className="calendarDayButton"
+    onClick={[Function]}
+    type="button"
+  >
+    1
+  </button>
+</div>
+`;

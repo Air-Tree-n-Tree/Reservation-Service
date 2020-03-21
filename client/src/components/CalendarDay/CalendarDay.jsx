@@ -7,7 +7,7 @@ import setCheckOutDay from '../../store/actions/setCheckOutDay.action';
 
 import classes from './CalendarDay.module.css';
 
-const Day = ({
+export const CalendarDay = ({
   status,
   dayOfMonth,
   day,
@@ -32,7 +32,7 @@ const Day = ({
   </div>
 );
 
-Day.propTypes = {
+CalendarDay.propTypes = {
   status: PropTypes.string.isRequired,
   dayOfMonth: PropTypes.number.isRequired,
   day: PropTypes.number.isRequired,
@@ -41,7 +41,7 @@ Day.propTypes = {
   selecting: PropTypes.string.isRequired,
 };
 
-const mapStateToProps = ({
+export const mapStateToProps = ({
   checkInDay,
   checkOutDay,
   currentDay,
@@ -84,4 +84,4 @@ const mapDispatchToProps = {
   dispatchSetCheckOutDay: setCheckOutDay,
 };
 
-export default connect(mapStateToProps, mapDispatchToProps)(Day);
+export default connect(mapStateToProps, mapDispatchToProps)(CalendarDay);

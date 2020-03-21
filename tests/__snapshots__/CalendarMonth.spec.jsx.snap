@@ -52,187 +52,187 @@ exports[`Calender Month component should render correctly 1`] = `
     >
       Sa
     </div>
-    <Connect(Day)
+    <Connect(CalendarDay)
       day={7365}
       dayOfMonth={0}
       key="7365"
       status="available"
     />
-    <Connect(Day)
+    <Connect(CalendarDay)
       day={7366}
       dayOfMonth={1}
       key="7366"
       status="available"
     />
-    <Connect(Day)
+    <Connect(CalendarDay)
       day={7367}
       dayOfMonth={2}
       key="7367"
       status="available"
     />
-    <Connect(Day)
+    <Connect(CalendarDay)
       day={7368}
       dayOfMonth={3}
       key="7368"
       status="available"
     />
-    <Connect(Day)
+    <Connect(CalendarDay)
       day={7369}
       dayOfMonth={4}
       key="7369"
       status="available"
     />
-    <Connect(Day)
+    <Connect(CalendarDay)
       day={7370}
       dayOfMonth={5}
       key="7370"
       status="available"
     />
-    <Connect(Day)
+    <Connect(CalendarDay)
       day={7371}
       dayOfMonth={6}
       key="7371"
       status="available"
     />
-    <Connect(Day)
+    <Connect(CalendarDay)
       day={7372}
       dayOfMonth={7}
       key="7372"
       status="available"
     />
-    <Connect(Day)
+    <Connect(CalendarDay)
       day={7373}
       dayOfMonth={8}
       key="7373"
       status="available"
     />
-    <Connect(Day)
+    <Connect(CalendarDay)
       day={7374}
       dayOfMonth={9}
       key="7374"
       status="available"
     />
-    <Connect(Day)
+    <Connect(CalendarDay)
       day={7375}
       dayOfMonth={10}
       key="7375"
       status="available"
     />
-    <Connect(Day)
+    <Connect(CalendarDay)
       day={7376}
       dayOfMonth={11}
       key="7376"
       status="available"
     />
-    <Connect(Day)
+    <Connect(CalendarDay)
       day={7377}
       dayOfMonth={12}
       key="7377"
       status="available"
     />
-    <Connect(Day)
+    <Connect(CalendarDay)
       day={7378}
       dayOfMonth={13}
       key="7378"
       status="available"
     />
-    <Connect(Day)
+    <Connect(CalendarDay)
       day={7379}
       dayOfMonth={14}
       key="7379"
       status="available"
     />
-    <Connect(Day)
+    <Connect(CalendarDay)
       day={7380}
       dayOfMonth={15}
       key="7380"
       status="available"
     />
-    <Connect(Day)
+    <Connect(CalendarDay)
       day={7381}
       dayOfMonth={16}
       key="7381"
       status="available"
     />
-    <Connect(Day)
+    <Connect(CalendarDay)
       day={7382}
       dayOfMonth={17}
       key="7382"
       status="available"
     />
-    <Connect(Day)
+    <Connect(CalendarDay)
       day={7383}
       dayOfMonth={18}
       key="7383"
       status="available"
     />
-    <Connect(Day)
+    <Connect(CalendarDay)
       day={7384}
       dayOfMonth={19}
       key="7384"
       status="available"
     />
-    <Connect(Day)
+    <Connect(CalendarDay)
       day={7385}
       dayOfMonth={20}
       key="7385"
       status="available"
     />
-    <Connect(Day)
+    <Connect(CalendarDay)
       day={7386}
       dayOfMonth={21}
       key="7386"
       status="available"
     />
-    <Connect(Day)
+    <Connect(CalendarDay)
       day={7387}
       dayOfMonth={22}
       key="7387"
       status="available"
     />
-    <Connect(Day)
+    <Connect(CalendarDay)
       day={7388}
       dayOfMonth={23}
       key="7388"
       status="available"
     />
-    <Connect(Day)
+    <Connect(CalendarDay)
       day={7389}
       dayOfMonth={24}
       key="7389"
       status="available"
     />
-    <Connect(Day)
+    <Connect(CalendarDay)
       day={7390}
       dayOfMonth={25}
       key="7390"
       status="available"
     />
-    <Connect(Day)
+    <Connect(CalendarDay)
       day={7391}
       dayOfMonth={26}
       key="7391"
       status="available"
     />
-    <Connect(Day)
+    <Connect(CalendarDay)
       day={7392}
       dayOfMonth={27}
       key="7392"
       status="available"
     />
-    <Connect(Day)
+    <Connect(CalendarDay)
       day={7393}
       dayOfMonth={28}
       key="7393"
       status="available"
     />
-    <Connect(Day)
+    <Connect(CalendarDay)
       day={7394}
       dayOfMonth={29}
       key="7394"
       status="available"
     />
-    <Connect(Day)
+    <Connect(CalendarDay)
       day={7395}
       dayOfMonth={30}
       key="7395"
