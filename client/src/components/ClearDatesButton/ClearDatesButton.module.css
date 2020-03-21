@@ -5,6 +5,7 @@
   border: 0;
   background-color: inherit;
   text-decoration: underline;
+  z-index: 10;
 }
 
 .clearDatesButton:disabled {
