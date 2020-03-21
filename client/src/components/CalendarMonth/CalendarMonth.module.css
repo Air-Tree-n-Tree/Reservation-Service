@@ -1,7 +1,10 @@
 .calendarContainer {
+  position: absolute;
   box-sizing: border-box;
   width: min-content;
   padding: 25px;
+  transition: 500ms ease-out;
+  z-index: 1;
 }
 
 .calendar {
@@ -20,4 +23,5 @@
 .monthLabel {
   padding-bottom: 15px;
   text-align: center;
+  font-weight: bold;
 }

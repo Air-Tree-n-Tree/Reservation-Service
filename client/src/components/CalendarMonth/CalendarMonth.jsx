@@ -6,11 +6,14 @@ import moment from 'moment';
 import Day from '../CalendarDay/CalendarDay';
 import classes from './CalendarMonth.module.css';
 
-export const CalendarMonth = ({ month, reservedDays }) => {
+export const CalendarMonth = ({ month, reservedDays, position }) => {
   const startOfMonthDay = moment(month).day();
   const startOfMonthDaysSince2000 = moment(month).diff(moment('2000-01-01'), 'days');
   return (
-    <div className={classes.calendarContainer}>
+    <div
+      className={classes.calendarContainer}
+      style={{ transform: `translateX(${100 * position}%)` }}
+    >
       <div className={classes.monthLabel}>{moment(month).format('MMMM')}</div>
       <div className={classes.calendar}>
         { ['Su', 'Mo', 'Tu', 'We', 'Th', 'Fr', 'Sa'].map((dayName) => (
@@ -42,6 +45,7 @@ export const CalendarMonth = ({ month, reservedDays }) => {
 CalendarMonth.propTypes = {
   month: PropTypes.string.isRequired,
   reservedDays: PropTypes.arrayOf(PropTypes.string).isRequired,
+  position: PropTypes.number.isRequired,
 };
 
 const mapStateToProps = ({ reservedDays, startingDay }, { month }) => {

@@ -15,6 +15,14 @@ export class Calendars extends Component {
     this.state = {
       currentMonth: selectedMonth,
     };
+    this.slideLeft = this.slide.bind(this, -1);
+    this.slideRight = this.slide.bind(this, 1);
+  }
+
+  slide(direction) {
+    this.setState(({ currentMonth }) => ({
+      currentMonth: moment(currentMonth).add(direction, 'month').format('YYYY-MM'),
+    }));
   }
 
   render() {
@@ -22,10 +30,19 @@ export class Calendars extends Component {
     const { currentMonth } = this.state;
     return (
       <div className={classes.calendars}>
-        {[0, 1].map((offset) => {
+
+        <button type="button" className={classes.leftButton} onClick={this.slideLeft}>
+          {'<'}
+        </button>
+        <button type="button" className={classes.rightButton} onClick={this.slideRight}>
+          {'>'}
+        </button>
+
+        {[-1, 0, 1, 2].map((offset) => {
           const month = moment(currentMonth).add(offset, 'month').format('YYYY-MM');
           return (
             <CalendarMonthContainer
+              position={offset}
               key={month}
               month={month}
             />
