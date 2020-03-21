@@ -51,7 +51,7 @@ const mapStateToProps = ({
   selecting,
 }, { status, day }) => {
   let realStatus = status;
-  const { minNights } = availability;
+  const { maxNights, minNights } = availability;
   if (day < currentDay) {
     realStatus = 'unavailable';
   } else if (day === checkOutDay) {
@@ -65,10 +65,13 @@ const mapStateToProps = ({
         break;
       }
     }
-  } else {
-    if (day > checkInDay + minNights || day < checkInDay) {
+  } else if (selecting === 'checkout') {
+    if (day > checkInDay + maxNights || day < checkInDay) {
       realStatus = 'unavailable';
     }
+  }
+  if (day > checkInDay && day < checkOutDay) {
+    realStatus = 'selected';
   }
   return {
     status: realStatus,

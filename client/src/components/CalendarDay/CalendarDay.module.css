@@ -45,3 +45,7 @@
   color: white;
   background-color: black;
 }
+
+.selected {
+  background-color: lightgray;
+}
