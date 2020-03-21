@@ -9,12 +9,15 @@
 
 .clearDates {
   position: absolute;
-  right: 25px;
-  transform: translateX(-100%);
+  right: 40px;
   bottom: 0;
   border: 0;
   background-color: inherit;
   text-decoration: underline;
+}
+
+.clearDates:disabled {
+  cursor: not-allowed;
 }
 
 .leftButton, .rightButton {

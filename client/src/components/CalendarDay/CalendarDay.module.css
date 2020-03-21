@@ -26,6 +26,10 @@
   text-decoration: line-through;
 }
 
+.unavailable button {
+  cursor: auto;
+}
+
 .available, .checkoutOnly {
   color: rgb(46, 46, 46);
 }
