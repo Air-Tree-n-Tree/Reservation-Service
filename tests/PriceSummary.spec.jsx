@@ -1,6 +1,6 @@
 import React from 'react';
 import { shallow } from 'enzyme';
-import PriceSummary from './PriceSummary';
+import PriceSummary from '../client/src/containers/PriceSummary/PriceSummary';
 
 test('Component should exist', () => {
   const reservation = shallow(<PriceSummary roomId={0} />);
