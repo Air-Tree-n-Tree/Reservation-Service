@@ -4,6 +4,8 @@ import ReactDOM from 'react-dom';
 import { Provider } from 'react-redux';
 import store from './src/store/store';
 
+import './src/styles/style.css';
+
 import AvailabilityContainer from './src/containers/Availability';
 import PriceSummary from './src/containers/PriceSummary';
 
