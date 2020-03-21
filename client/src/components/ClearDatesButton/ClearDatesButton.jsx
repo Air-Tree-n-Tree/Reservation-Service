@@ -7,18 +7,16 @@ import clearCheckOutDay from '../../store/actions/clearCheckOutDay.action';
 
 import classes from './ClearDatesButton.module.css';
 
-const clearDatesButton = ({ checkInDay, checkOutDay, clearDates }) => {
-  return (
-    <button
-      type="button"
-      className={classes.clearDatesButton}
-      disabled={!checkInDay && !checkOutDay}
-      onClick={clearDates}
-    >
-      Clear dates
-    </button>
-  );
-};
+const clearDatesButton = ({ checkInDay, checkOutDay, clearDates }) => (
+  <button
+    type="button"
+    className={classes.clearDatesButton}
+    disabled={!checkInDay && !checkOutDay}
+    onClick={clearDates}
+  >
+    Clear dates
+  </button>
+);
 
 clearDatesButton.propTypes = {
   checkInDay: PropTypes.number,
