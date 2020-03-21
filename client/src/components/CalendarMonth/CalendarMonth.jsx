@@ -49,7 +49,9 @@ const mapStateToProps = ({ reservedDays, startingDay }, { month }) => {
   const endingIndex = startingIndex + moment(month).daysInMonth();
   return {
     startingIndex,
-    reservedDays: reservedDays.slice(startingIndex, endingIndex),
+    reservedDays: moment(month).isSameOrAfter(moment().startOf('month'))
+      ? reservedDays.slice(startingIndex, endingIndex)
+      : new Array(moment(month).daysInMonth()).fill('unavailable'),
   };
 };
 
