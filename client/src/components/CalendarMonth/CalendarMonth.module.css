@@ -1,5 +1,7 @@
 .calendarContainer {
+  box-sizing: border-box;
   width: min-content;
+  padding: 25px;
 }
 
 .calendar {

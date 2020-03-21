@@ -2,7 +2,7 @@ import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import PropTypes from 'prop-types';
 
-import CalendarsContainer from '../components/Calendars';
+import CalendarsContainer from '../components/Calendars/Calendars';
 import fetchAvailability from '../store/actions/fetchAvailability.action';
 
 export class Availability extends Component {

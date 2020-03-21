@@ -3,7 +3,8 @@ import PropTypes from 'prop-types';
 import { connect } from 'react-redux';
 import moment from 'moment';
 
-import CalendarMonthContainer from './CalendarMonth/CalendarMonth';
+import CalendarMonthContainer from '../CalendarMonth/CalendarMonth';
+import classes from './Calendars.module.css';
 
 export class Calendars extends Component {
   constructor(props) {
@@ -17,13 +18,19 @@ export class Calendars extends Component {
   render() {
     const { currentMonth } = this.state;
     return (
-      <div>
-        <CalendarMonthContainer
-          month={currentMonth}
-        />
-        <CalendarMonthContainer
-          month={moment(currentMonth).add(1, 'month').format('YYYY-MM')}
-        />
+      <div className={classes.calendars}>
+        {[0, 1].map((offset) => {
+          const month = moment(currentMonth).add(offset, 'month').format('YYYY-MM');
+          return (
+            <CalendarMonthContainer
+              key={month}
+              month={month}
+            />
+          );
+        })}
+
+        <button className={classes.clearDates} type="button">Clear dates</button>
+
       </div>
     );
   }
