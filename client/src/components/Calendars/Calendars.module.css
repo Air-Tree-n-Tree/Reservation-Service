@@ -7,19 +7,6 @@
   font-family: Arial, Helvetica, sans-serif;
 }
 
-.clearDates {
-  position: absolute;
-  right: 40px;
-  bottom: 0;
-  border: 0;
-  background-color: inherit;
-  text-decoration: underline;
-}
-
-.clearDates:disabled {
-  cursor: not-allowed;
-}
-
 .leftButton, .rightButton {
   box-sizing: content-box;
   position: absolute;

@@ -4,8 +4,7 @@ import { connect } from 'react-redux';
 import moment from 'moment';
 
 import CalendarMonthContainer from '../CalendarMonth/CalendarMonth';
-import clearCheckInDay from '../../store/actions/clearCheckInDay.action';
-import clearCheckOutDay from '../../store/actions/clearCheckOutDay.action';
+import ClearDatesButton from '../ClearDatesButton/ClearDatesButton';
 import classes from './Calendars.module.css';
 
 export class Calendars extends Component {
@@ -26,7 +25,6 @@ export class Calendars extends Component {
   }
 
   render() {
-    const { clearDates } = this.props;
     const { currentMonth } = this.state;
     return (
       <div className={classes.calendars}>
@@ -49,13 +47,7 @@ export class Calendars extends Component {
           );
         })}
 
-        <button
-          className={classes.clearDates}
-          type="button"
-          onClick={clearDates}
-        >
-          Clear dates
-        </button>
+        <ClearDatesButton />
 
       </div>
     );
@@ -64,7 +56,6 @@ export class Calendars extends Component {
 
 Calendars.propTypes = {
   selectedMonth: PropTypes.string,
-  clearDates: PropTypes.func.isRequired,
 };
 
 Calendars.defaultProps = {
@@ -75,11 +66,4 @@ const mapStateToProps = ({ checkinDay }) => ({
   selectedMonth: moment(checkinDay).format('YYYY-MM'),
 });
 
-const mapDispatchToProps = (dispatch) => ({
-  clearDates: () => {
-    dispatch(clearCheckInDay());
-    dispatch(clearCheckOutDay());
-  },
-});
-
-export default connect(mapStateToProps, mapDispatchToProps)(Calendars);
+export default connect(mapStateToProps, null)(Calendars);

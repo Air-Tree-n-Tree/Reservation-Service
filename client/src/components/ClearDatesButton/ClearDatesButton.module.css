@@ -1,0 +1,12 @@
+.clearDatesButton {
+  position: absolute;
+  right: 40px;
+  bottom: 0;
+  border: 0;
+  background-color: inherit;
+  text-decoration: underline;
+}
+
+.clearDatesButton:disabled {
+  cursor: not-allowed;
+}
