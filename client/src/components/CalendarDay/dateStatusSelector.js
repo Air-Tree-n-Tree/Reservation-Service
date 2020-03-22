@@ -65,7 +65,7 @@ const dateStatusSelector = ({ reservedDates, constraints, selection }, date) => 
 
   const { maxNights } = constraints;
   if (selecting === 'checkout') {
-    if (dateExceedsMaxNights(date, checkinDate, reservedDates, minNights, maxNights)) {
+    if (dateExceedsMaxNights(date, checkinDate, maxNights)) {
       return 'unavailable';
     }
     if (date < checkinDate) {
