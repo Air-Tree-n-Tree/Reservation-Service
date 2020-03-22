@@ -55,15 +55,15 @@ export class Calendars extends Component {
 }
 
 Calendars.propTypes = {
-  selectedMonth: PropTypes.string,
+  selectedMonth: PropTypes.string.isRequired,
 };
 
-Calendars.defaultProps = {
-  selectedMonth: moment().startOf('month').format('YYYY-MM'), // Default to real life month
+const mapStateToProps = ({ dates }) => {
+  const { checkinDate } = dates.selection;
+  return {
+    // Passing undefined to moment defaults to current date.
+    selectedMonth: moment(checkinDate || undefined).format('YYYY-MM'),
+  };
 };
-
-const mapStateToProps = ({ checkinDay }) => ({
-  selectedMonth: moment(checkinDay).format('YYYY-MM'),
-});
 
 export default connect(mapStateToProps, null)(Calendars);

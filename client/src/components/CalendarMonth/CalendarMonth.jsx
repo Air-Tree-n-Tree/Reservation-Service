@@ -1,14 +1,19 @@
 import React from 'react';
-import { connect } from 'react-redux';
 import PropTypes from 'prop-types';
 import moment from 'moment';
 
 import CalendarDayContainer from '../CalendarDay/CalendarDay';
 import classes from './CalendarMonth.module.css';
 
-export const CalendarMonth = ({ month, reservedDays, position }) => {
-  const startOfMonthDay = moment(month).day();
-  const startOfMonthDaysSince2000 = moment(month).diff(moment('2000-01-01'), 'days');
+const CalendarMonth = ({ month, position }) => {
+  const monthMoment = moment(month);
+  const startOfMonthDay = monthMoment.day();
+  const startOfMonthDaysSince2000 = monthMoment.diff(moment('2000-01-01'), 'days');
+  const days = [];
+  for (let i = 0; i < monthMoment.daysInMonth(); i += 1) {
+    days.push(startOfMonthDaysSince2000 + i);
+  }
+
   return (
     <div
       className={classes.calendarContainer}
@@ -26,17 +31,13 @@ export const CalendarMonth = ({ month, reservedDays, position }) => {
             : null
         }
 
-        { reservedDays.map((dayStatus, dayOfMonth) => {
-          const day = startOfMonthDaysSince2000 + dayOfMonth;
-          return (
-            <CalendarDayContainer
-              key={day}
-              day={day}
-              dayOfMonth={dayOfMonth}
-              status={dayStatus}
-            />
-          );
-        })}
+        { days.map((date, dayOfMonth) => (
+          <CalendarDayContainer
+            key={date}
+            date={date}
+            dayOfMonth={dayOfMonth}
+          />
+        ))}
       </div>
     </div>
   );
@@ -44,19 +45,7 @@ export const CalendarMonth = ({ month, reservedDays, position }) => {
 
 CalendarMonth.propTypes = {
   month: PropTypes.string.isRequired,
-  reservedDays: PropTypes.arrayOf(PropTypes.string).isRequired,
   position: PropTypes.number.isRequired,
 };
 
-const mapStateToProps = ({ reservedDays, startingDay }, { month }) => {
-  const startingIndex = moment(month).diff(moment('2000-01-01'), 'days') - startingDay;
-  const endingIndex = startingIndex + moment(month).daysInMonth();
-  return {
-    startingIndex,
-    reservedDays: moment(month).isSameOrAfter(moment().startOf('month'))
-      ? reservedDays.slice(startingIndex, endingIndex)
-      : new Array(moment(month).daysInMonth()).fill('unavailable'),
-  };
-};
-
-export default connect(mapStateToProps)(CalendarMonth);
+export default CalendarMonth;

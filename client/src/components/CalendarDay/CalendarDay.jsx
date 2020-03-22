@@ -43,43 +43,10 @@ CalendarDay.propTypes = {
   selecting: PropTypes.string.isRequired,
 };
 
-export const mapStateToProps = ({
-  checkInDay,
-  checkOutDay,
-  currentDay,
-  startingDay,
-  availability,
-  reservedDays,
-  selecting,
-}, { status, day }) => {
-  let realStatus = status;
-  const { maxNights, minNights } = availability;
-  if (day < currentDay) {
-    realStatus = 'unavailable';
-  } else if (day === checkOutDay) {
-    realStatus = 'checkoutDay';
-  } else if (day === checkInDay) {
-    realStatus = 'checkinDay';
-  } else if (selecting === 'checkin' && realStatus === 'available') {
-    for (let i = 1; i <= minNights; i += 1) {
-      if (reservedDays[day - startingDay + i] === 'unavailable') {
-        realStatus = 'checkoutOnly';
-        break;
-      }
-    }
-  } else if (selecting === 'checkout') {
-    if (day > checkInDay + maxNights || day < checkInDay) {
-      realStatus = 'unavailable';
-    }
-  }
-  if (day > checkInDay && day < checkOutDay) {
-    realStatus = 'selected';
-  }
-  return {
-    status: realStatus,
-    selecting,
-  };
-};
+const mapStateToProps = ({ dates }, { date }) => ({
+  status: dateStatusSelector(dates, date),
+  selecting: dates.selection.selecting,
+});
 
 const mapDispatchToProps = {
   dispatchSetCheckInDate: setCheckInDate,
