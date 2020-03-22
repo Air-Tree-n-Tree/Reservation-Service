@@ -27,8 +27,8 @@ Availability.propTypes = {
   loading: PropTypes.bool.isRequired,
 };
 
-const mapStateToProps = ({ availability }) => ({
-  loading: Object.keys(availability).length === 0,
+const mapStateToProps = ({ dates }) => ({
+  loading: dates.reservedDates === null,
 });
 
 const mapDispatchToProps = {

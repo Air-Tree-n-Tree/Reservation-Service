@@ -3,18 +3,18 @@ const selection = (state = {
   checkoutDate: null,
   selecting: 'checkin',
 }, action) => {
-  const { type, checkinDate, checkoutDate } = action;
+  const { type, date } = action;
   switch (type) {
-    case 'SET_CHECKINDAY':
+    case 'SET_CHECKINDATE':
       return {
         ...state,
-        checkinDate,
+        checkinDate: date,
         selecting: 'checkout',
       };
-    case 'SET_CHECKOUTDAY':
+    case 'SET_CHECKOUTDATE':
       return {
         ...state,
-        checkoutDate,
+        checkoutDate: date,
         selecting: 'checkin',
       };
     case 'CLEAR_DATES':

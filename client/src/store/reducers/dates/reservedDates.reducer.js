@@ -8,7 +8,7 @@ const computeReservedDates = (reservations) => {
   return dateStatuses;
 };
 
-const reservedDates = (state = [], action) => {
+const reservedDates = (state = null, action) => {
   switch (action.type) {
     case 'FETCH_AVAILABILITY':
       return computeReservedDates(
