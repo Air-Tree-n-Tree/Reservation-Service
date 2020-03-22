@@ -2,16 +2,15 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import { connect } from 'react-redux';
 
-import clearCheckInDay from '../../store/actions/clearCheckInDay.action';
-import clearCheckOutDay from '../../store/actions/clearCheckOutDay.action';
+import clearSelectedDates from '../../store/actions/clearSelectedDates.action';
 
 import classes from './ClearDatesButton.module.css';
 
-const clearDatesButton = ({ checkInDay, checkOutDay, clearDates }) => (
+const clearDatesButton = ({ checkinDate, checkoutDate, clearDates }) => (
   <button
     type="button"
     className={classes.clearDatesButton}
-    disabled={!checkInDay && !checkOutDay}
+    disabled={!checkinDate && !checkoutDate}
     onClick={clearDates}
   >
     Clear dates
@@ -19,26 +18,26 @@ const clearDatesButton = ({ checkInDay, checkOutDay, clearDates }) => (
 );
 
 clearDatesButton.propTypes = {
-  checkInDay: PropTypes.number,
-  checkOutDay: PropTypes.number,
+  checkinDate: PropTypes.number,
+  checkoutDate: PropTypes.number,
   clearDates: PropTypes.func.isRequired,
 };
 
 clearDatesButton.defaultProps = {
-  checkInDay: null,
-  checkOutDay: null,
+  checkinDate: null,
+  checkoutDate: null,
 };
 
-const mapStateToProps = ({ checkInDay, checkOutDay }) => ({
-  checkInDay,
-  checkOutDay,
-});
+const mapStateToProps = ({ dates }) => {
+  const { checkinDate, checkoutDate } = dates.selection;
+  return {
+    checkinDate,
+    checkoutDate,
+  };
+};
 
-const mapDispatchToProps = (dispatch) => ({
-  clearDates: () => {
-    dispatch(clearCheckInDay());
-    dispatch(clearCheckOutDay());
-  },
-});
+const mapDispatchToProps = {
+  clearDates: clearSelectedDates,
+};
 
 export default connect(mapStateToProps, mapDispatchToProps)(clearDatesButton);
