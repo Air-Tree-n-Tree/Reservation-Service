@@ -30,7 +30,7 @@ const dateExceedsMaxNights = (date, checkinDate, maxNights) => (
 );
 
 const dateExceedsNextReservation = (date, checkinDate, reservedDates, minNights, maxNights) => {
-  let nextReservationDate = maxNights;
+  let nextReservationDate = checkinDate + maxNights;
   for (let i = minNights; i < maxNights; i += 1) {
     if (reservedDates[checkinDate + i] === 'unavailable') {
       nextReservationDate = checkinDate + i;
