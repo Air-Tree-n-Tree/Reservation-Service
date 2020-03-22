@@ -6,12 +6,12 @@ import clearSelectedDates from '../../store/actions/clearSelectedDates.action';
 
 import classes from './ClearDatesButton.module.css';
 
-const clearDatesButton = ({ checkinDate, checkoutDate, clearDates }) => (
+const clearDatesButton = ({ checkinDate, checkoutDate, dispatchclearSelectedDates }) => (
   <button
     type="button"
     className={classes.clearDatesButton}
     disabled={!checkinDate && !checkoutDate}
-    onClick={clearDates}
+    onClick={dispatchclearSelectedDates}
   >
     Clear dates
   </button>
@@ -20,7 +20,7 @@ const clearDatesButton = ({ checkinDate, checkoutDate, clearDates }) => (
 clearDatesButton.propTypes = {
   checkinDate: PropTypes.number,
   checkoutDate: PropTypes.number,
-  clearDates: PropTypes.func.isRequired,
+  dispatchclearSelectedDates: PropTypes.func.isRequired,
 };
 
 clearDatesButton.defaultProps = {
@@ -37,7 +37,7 @@ const mapStateToProps = ({ dates }) => {
 };
 
 const mapDispatchToProps = {
-  clearDates: clearSelectedDates,
+  dispatchclearSelectedDates: clearSelectedDates,
 };
 
 export default connect(mapStateToProps, mapDispatchToProps)(clearDatesButton);

@@ -7,8 +7,8 @@ import fetchAvailability from '../../store/actions/fetchAvailability.action';
 
 export class Availability extends Component {
   componentDidMount() {
-    const { fetch, roomId } = this.props;
-    fetch(roomId);
+    const { dispatchFetchAvailability, roomId } = this.props;
+    dispatchFetchAvailability(roomId);
   }
 
   render() {
@@ -23,7 +23,7 @@ export class Availability extends Component {
 
 Availability.propTypes = {
   roomId: PropTypes.oneOfType([PropTypes.string, PropTypes.number]).isRequired,
-  fetch: PropTypes.func.isRequired,
+  dispatchFetchAvailability: PropTypes.func.isRequired,
   loading: PropTypes.bool.isRequired,
 };
 
@@ -32,7 +32,7 @@ const mapStateToProps = ({ dates }) => ({
 });
 
 const mapDispatchToProps = {
-  fetch: fetchAvailability,
+  dispatchFetchAvailability: fetchAvailability,
 };
 
 export default connect(mapStateToProps, mapDispatchToProps)(Availability);
