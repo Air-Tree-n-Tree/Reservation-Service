@@ -1,11 +1,11 @@
-import { combineReducers } from 'react-redux';
+import { combineReducers } from 'redux';
 
-import reservedDays from './reservedDays.reducer';
+import reservedDates from './reservedDates.reducer';
 import selection from './selection.reducer';
 
 
 const days = combineReducers({
-  reservedDays,
+  reservedDates,
   selection,
 });
 
