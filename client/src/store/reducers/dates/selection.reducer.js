@@ -7,8 +7,8 @@ const selection = (state = {
   switch (type) {
     case 'SET_CHECKINDATE':
       return {
-        ...state,
         checkinDate: date,
+        checkoutDate: null,
         selecting: 'checkout',
       };
     case 'SET_CHECKOUTDATE':
