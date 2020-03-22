@@ -57,6 +57,9 @@ const dateStatusSelector = ({ reservedDates, constraints, selection }, date) => 
   if (date === checkinDate) {
     return 'checkinDate';
   }
+  if (checkinDate < date && date < checkoutDate) {
+    return 'selected';
+  }
 
   const { minNights } = constraints;
   if (selecting === 'checkin' && dateIsCheckoutOnly(date, reservedDates, minNights)) {
