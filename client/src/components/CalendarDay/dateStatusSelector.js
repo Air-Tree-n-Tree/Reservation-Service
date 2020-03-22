@@ -9,10 +9,6 @@ const dateHasPassed = (date) => (
   date < moment().diff(moment('2000-01'), 'days')
 );
 
-const dateIsFutureToAllReservations = (date, reservedDates) => (
-  date > reservedDates.length
-);
-
 const dateIsCheckoutOnly = (date, reservedDates, minNights) => {
   for (let i = 1; i <= minNights; i += 1) {
     if (reservedDates[date + i] === 'unavailable') {
@@ -37,11 +33,6 @@ const dateStatusSelector = (dates, date) => {
     return 'unavailable';
   }
 
-  const { selecting } = selection;
-  if (selecting === 'checkin' && dateIsFutureToAllReservations(date, reservedDates)) {
-    return 'available';
-  }
-
   const { checkoutDate, checkinDate } = selection;
   if (date === checkoutDate) {
     return 'checkoutDate';
@@ -53,6 +44,7 @@ const dateStatusSelector = (dates, date) => {
     return 'selected';
   }
 
+  const { selecting } = selection;
   const { minNights } = constraints;
   if (selecting === 'checkin' && dateIsCheckoutOnly(date, reservedDates, minNights)) {
     return 'checkoutOnly';
