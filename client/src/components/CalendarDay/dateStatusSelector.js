@@ -1,4 +1,5 @@
 import moment from 'moment';
+import getLastPossibleCheckoutDate from '../../store/selectors/getLastPossibleCheckoutDate';
 
 const dateIsReserved = (date, reservedDates) => (
   reservedDates[date] === 'unavailable'
@@ -25,22 +26,13 @@ const dateDoesNotMeetMinNights = (date, checkinDate, minNights) => (
   date > checkinDate && date - checkinDate < minNights
 );
 
-const dateExceedsMaxNights = (date, checkinDate, maxNights) => (
-  date - checkinDate > maxNights
-);
-
-const dateExceedsNextReservation = (date, checkinDate, reservedDates, minNights, maxNights) => {
-  let nextReservationDate = checkinDate + maxNights;
-  for (let i = minNights; i < maxNights; i += 1) {
-    if (reservedDates[checkinDate + i] === 'unavailable') {
-      nextReservationDate = checkinDate + i;
-      break;
-    }
-  }
-  return date >= nextReservationDate;
+const dateExceedsLastPossibleCheckoutDate = (date, dates) => {
+  const lastPossibleCheckoutDate = getLastPossibleCheckoutDate(dates);
+  return lastPossibleCheckoutDate && date > lastPossibleCheckoutDate;
 };
 
-const dateStatusSelector = ({ reservedDates, constraints, selection }, date) => {
+const dateStatusSelector = (dates, date) => {
+  const { reservedDates, constraints, selection } = dates;
   if (dateHasPassed(date) || dateIsReserved(date, reservedDates)) {
     return 'unavailable';
   }
@@ -66,19 +58,15 @@ const dateStatusSelector = ({ reservedDates, constraints, selection }, date) => 
     return 'checkoutOnly';
   }
 
-  const { maxNights } = constraints;
   if (selecting === 'checkout') {
-    if (dateExceedsMaxNights(date, checkinDate, maxNights)) {
-      return 'unavailable';
-    }
     if (date < checkinDate) {
-      return 'unavailable';
-    }
-    if (dateExceedsNextReservation(date, checkinDate, reservedDates, minNights, maxNights)) {
       return 'unavailable';
     }
     if (dateDoesNotMeetMinNights(date, checkinDate, minNights)) {
       return 'minNights';
+    }
+    if (dateExceedsLastPossibleCheckoutDate(date, dates)) {
+      return 'unavailable';
     }
   }
 
