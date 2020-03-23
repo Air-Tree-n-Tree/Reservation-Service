@@ -8,7 +8,7 @@ Install package dependencies.
 
 `npm install`
 
-Install mongodb server community edition if not already installed. 
+Install mongodb server community edition if not already installed.
 https://www.mongodb.com/download-center/community
 
 Version 4.2.3 of mongod is supported.
@@ -17,34 +17,40 @@ Seed the service database for development.
 
 `npm run seed`
 
+The modules mount to:
+
+```
+<div id='availability' />
+<div id='priceSummary' />
+```
 
 ## scripts
 
-`start-server`
+`start-server`:
 
 Starts the proxy service server locally.
 
 ---
 
-`build-dev`
+`build-dev`:
 
 Build development bundle of client module.
 
 ---
 
-`build-prod`
+`build-prod`:
 
 Build production bundle of client module.
 
 ---
 
-`start-dev`
+`start-dev`:
 
 Starts a webpack-dev-server on port 9000.
 
 ---
 
-`seed`
+`seed`:
 
 Creates a mongo database `room-reservations`
 
@@ -55,7 +61,7 @@ with 100 documents of dummy reservation data.
 ---
 
 
-`dev-server`
+`dev-server`:
 
 __`nodemon` is required for `dev-server` and is not included in the package dependencies. `nodemon` must be installed separately or globally.__ 
 
