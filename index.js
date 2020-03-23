@@ -17,10 +17,10 @@ const start = function startServer(port) {
 const port = process.env.PORT || 3002;
 
 if (process.env.NODE_ENV === 'development') {
-  start(3002);
+  start(port);
 } else {
-  rl.question('Listen on which port? ', (_port = port) => {
-    start(_port);
+  rl.question('Listen on which port? (3002)', (_port) => {
+    start(_port.length ? _port : port);
     rl.close();
   });
 }
