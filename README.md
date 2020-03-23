@@ -1,5 +1,66 @@
 # Air Tree n Tree Reservation Service
 
+## Getting Started
+
+This service is supported on Node v12.13.0
+
+Install package dependencies.
+
+`npm install`
+
+Install mongodb server community edition if not already installed. 
+https://www.mongodb.com/download-center/community
+
+Version 4.2.3 of mongod is supported.
+
+Seed the service database for development.
+
+`npm run seed`
+
+
+## scripts
+
+`start-server`
+
+Starts the proxy service server locally.
+
+---
+
+`build-dev`
+
+Build development bundle of client module.
+
+---
+
+`build-prod`
+
+Build production bundle of client module.
+
+---
+
+`start-dev`
+
+Starts a webpack-dev-server on port 9000.
+
+---
+
+`seed`
+
+Creates a mongo database `room-reservations`
+
+
+Creates and seeds collection `availabilities`
+with 100 documents of dummy reservation data.
+
+---
+
+
+`dev-server`
+
+__`nodemon` is required for `dev-server` and is not included in the package dependencies. `nodemon` must be installed separately or globally.__ 
+
+Starts and watches the proxy service server.
+
 ---
 
 ## API Spec
