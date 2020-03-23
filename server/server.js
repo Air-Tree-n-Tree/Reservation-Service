@@ -2,10 +2,17 @@ const express = require('express');
 const db = require('../database');
 
 const app = express();
+const allowedOrigins = [
+  'http://localhost:9000',
+  'http://localhost:3000',
+];
 
 // Allow access from client origin
 app.use('/api/reservations/', (req, res, next) => {
-  res.header('Access-Control-Allow-Origin', 'http://localhost:9000');
+  const { origin } = req.headers;
+  if (allowedOrigins.includes(origin)) {
+    res.setHeader('Access-Control-Allow-Origin', origin);
+  }
   next();
 });
 
