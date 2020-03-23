@@ -10,7 +10,7 @@ describe('Availibiltiy Container Component', () => {
     availability = shallow(
       <Availability
         roomId={0}
-        fetch={mockFetch}
+        dispatchFetchAvailability={mockFetch}
         loading
       />,
     );

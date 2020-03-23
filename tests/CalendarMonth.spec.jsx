@@ -1,7 +1,7 @@
 import React from 'react';
 import { shallow } from 'enzyme';
 import moment from 'moment';
-import { CalendarMonth } from '../client/src/components/CalendarMonth/CalendarMonth';
+import CalendarMonth from '../client/src/components/CalendarMonth/CalendarMonth';
 
 describe('Calender Month component', () => {
   let calendarMonth;
