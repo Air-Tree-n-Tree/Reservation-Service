@@ -1,6 +1,6 @@
 import { combineReducers } from 'redux';
-import availability from './reducers/availability.reducer';
+import dates from './reducers/dates/dates.reducer';
 
 export default combineReducers({
-  availability,
+  dates,
 });

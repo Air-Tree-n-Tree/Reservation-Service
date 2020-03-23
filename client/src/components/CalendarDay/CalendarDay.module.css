@@ -1,0 +1,55 @@
+.calendarDay {
+  height: 100%;
+  width: 100%;
+  line-height: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.calendarDayButton {
+  height: 100%;
+  width: 100%;
+  font-family: inherit;
+  border: 0;
+  padding: 0;
+  background-color: transparent;
+  color: inherit;
+}
+
+.calendarDayButton::-moz-focus-inner {
+  border: 0;
+}
+
+.unavailable {
+  color: rgb(185, 185, 185);
+  text-decoration: line-through;
+}
+
+.unavailable button {
+  cursor: auto;
+}
+
+.available, .checkoutOnly {
+  color: rgb(46, 46, 46);
+}
+
+.available:hover {
+  border-radius: 50%;
+  border: 2px solid rgb(46, 46, 46);
+}
+
+.checkoutOnly:hover {
+  border-radius: 50%;
+  border: 2px solid rgb(185, 185, 185);
+}
+
+.checkinDate, .checkoutDate {
+  border-radius: 50%;
+  color: white;
+  background-color: black;
+}
+
+.selected {
+  background-color: lightgray;
+}

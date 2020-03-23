@@ -1,7 +1,7 @@
 import React from 'react';
 import { shallow } from 'enzyme';
 
-import { Availability } from './Availability';
+import { Availability } from '../client/src/containers/Availability/Availability';
 
 describe('Availibiltiy Container Component', () => {
   const mockFetch = jest.fn();
@@ -10,7 +10,7 @@ describe('Availibiltiy Container Component', () => {
     availability = shallow(
       <Availability
         roomId={0}
-        fetch={mockFetch}
+        dispatchFetchAvailability={mockFetch}
         loading
       />,
     );

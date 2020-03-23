@@ -1,0 +1,27 @@
+.calendarContainer {
+  position: absolute;
+  box-sizing: border-box;
+  width: min-content;
+  padding: 25px;
+  transition: 500ms ease-out;
+  z-index: 1;
+}
+
+.calendar {
+  display: grid;
+  grid-template-columns: repeat(7, 50px);
+  grid-template-rows: 30px;
+  grid-auto-rows: 50px;
+  gap: 2px;
+  place-items: center;
+}
+
+.calendar div {
+  user-select: none;
+}
+
+.monthLabel {
+  padding-bottom: 15px;
+  text-align: center;
+  font-weight: bold;
+}
