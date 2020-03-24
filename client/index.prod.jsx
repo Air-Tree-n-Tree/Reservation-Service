@@ -10,7 +10,7 @@ import AvailabilityContainer from './src/containers/Availability/Availability';
 import PriceSummary from './src/containers/PriceSummary/PriceSummary';
 
 const params = new URLSearchParams(window.location.search);
-const roomId = params.get('room') || 0;
+const roomId = params.get('roomId') || 0;
 
 const availability = (
   <Provider store={store}>
