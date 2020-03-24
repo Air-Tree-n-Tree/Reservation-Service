@@ -6,7 +6,7 @@ module.exports = {
   context: path.resolve(CLIENT),
   entry: path.resolve(CLIENT, 'index.prod.jsx'),
   output: {
-    filename: 'bundle.js',
+    filename: 'reservationsBundle.js',
     path: path.resolve(ROOT, 'public'),
   },
   module: {
