@@ -4,7 +4,7 @@ const { ROOT, CLIENT } = require('../constants/PATHS');
 module.exports = {
   mode: 'production',
   context: path.resolve(CLIENT),
-  entry: path.resolve(CLIENT, 'index.dev.jsx'),
+  entry: path.resolve(CLIENT, 'index.prod.jsx'),
   output: {
     filename: 'bundle.js',
     path: path.resolve(ROOT, 'public'),
