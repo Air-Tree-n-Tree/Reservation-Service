@@ -1,4 +1,5 @@
 const express = require('express');
+const path = require('path');
 const db = require('../database');
 
 const app = express();
@@ -6,6 +7,10 @@ const allowedOrigins = [
   'http://localhost:9000',
   'http://localhost:3000',
 ];
+
+app.use(express.static(
+  path.resolve(__dirname, '..', 'public'),
+));
 
 // Allow access from client origin
 app.use('/api/reservations/', (req, res, next) => {
