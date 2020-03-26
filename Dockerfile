@@ -11,7 +11,6 @@ RUN npm install
 
 # Compile bundle
 RUN npm run build-prod
-RUN npm run seed
 
 # Start server
 EXPOSE 3002
