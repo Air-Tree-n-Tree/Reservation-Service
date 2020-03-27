@@ -1,12 +1,18 @@
 const path = require('path');
-const { ROOT, CLIENT } = require('../constants/PATHS');
+const HtmlWebpackPlugin = require('html-webpack-plugin');
+const { ROOT } = require('../constants/PATHS');
 
 module.exports = {
-  mode: 'production',
-  context: path.resolve(CLIENT),
-  entry: path.resolve(CLIENT, 'index.prod.jsx'),
+  mode: 'development',
+  context: path.resolve(ROOT),
+  entry: path.resolve(ROOT, 'index.dev.jsx'),
+  plugins: [
+    new HtmlWebpackPlugin({
+      template: path.resolve(ROOT, 'templates', 'index.html'),
+    }),
+  ],
   output: {
-    filename: 'reservationsBundle.js',
+    filename: 'bundle.js',
     path: path.resolve(ROOT, 'public'),
   },
   module: {
@@ -26,7 +32,7 @@ module.exports = {
             loader: 'css-loader',
             options: {
               modules: {
-                localIdentName: '[hash:base64:8]',
+                localIdentName: '[path][name]__[local]--[hash:base64:5]',
               },
             },
           },
@@ -36,5 +42,10 @@ module.exports = {
   },
   resolve: {
     extensions: ['.js', '.jsx'],
+  },
+  devtool: 'inline-source-map',
+  devServer: {
+    contentBase: path.resolve(ROOT, 'public'),
+    port: 9000,
   },
 };
