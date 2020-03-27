@@ -1,0 +1,17 @@
+# Packages
+node_modules
+
+# Settings
+.vscode
+.circleci
+.eslintignore
+.eslintrc.js
+
+# Version control
+.git
+.gitignore
+
+# Tests
+jest.config.js
+coverage
+tests
