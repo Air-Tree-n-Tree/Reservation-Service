@@ -12,6 +12,8 @@ Install package dependencies.
 
 `npm install`
 
+---
+
 Install mongodb server community edition if not already installed.
 https://www.mongodb.com/download-center/community
 
@@ -20,6 +22,8 @@ Version 4.2.3 of mongod is supported.
 Seed the service database for development.
 
 `npm run seed`
+
+---
 
 The modules mount to:
 
