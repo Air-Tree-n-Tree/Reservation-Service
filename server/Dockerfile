@@ -9,9 +9,6 @@ RUN cd /src/reservations-service
 # Install dependencies
 RUN npm install
 
-# Compile bundle
-RUN npm run build-prod
-
 # Start server
 EXPOSE 3002
 CMD ["node", "index.js"]

@@ -1,5 +1,5 @@
 import moment from 'moment';
-import dateStatusSelectors from '../client/src/components/CalendarDay/dateStatusSelector';
+import dateStatusSelectors from '../src/components/CalendarDay/dateStatusSelector';
 
 describe('Date status selector', () => {
   const currentDate = moment().diff(moment('2000-01'), 'days');

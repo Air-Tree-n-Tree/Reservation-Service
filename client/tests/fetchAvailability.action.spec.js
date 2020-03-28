@@ -1,6 +1,6 @@
-import fetchAvailability from '../client/src/store/actions/fetchAvailability.action';
+import fetchAvailability from '../src/store/actions/fetchAvailability.action';
 
-jest.mock('../client/src/api/requestAvailability');
+jest.mock('../src/api/requestAvailability');
 
 describe('Fetch Availability action creator', () => {
   it('should return a function', () => {

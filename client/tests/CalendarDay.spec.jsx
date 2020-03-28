@@ -1,6 +1,6 @@
 import React from 'react';
 import { shallow } from 'enzyme';
-import { CalendarDay } from '../client/src/components/CalendarDay/CalendarDay';
+import { CalendarDay } from '../src/components/CalendarDay/CalendarDay';
 
 describe('Calendar Day component', () => {
   let mockDipsatchSelectDate;

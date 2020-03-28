@@ -1,7 +1,7 @@
 import React from 'react';
 import { shallow } from 'enzyme';
 
-import { Availability } from '../client/src/containers/Availability/Availability';
+import { Availability } from '../src/containers/Availability/Availability';
 
 describe('Availibiltiy Container Component', () => {
   const mockFetch = jest.fn();

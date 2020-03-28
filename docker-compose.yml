@@ -1,7 +1,7 @@
 version: '3'
 services:
     reservations-service:
-      build: .
+      build: ./server
       depends_on: 
         - "database"
       ports:
