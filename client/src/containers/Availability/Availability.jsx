@@ -3,7 +3,11 @@ import { connect } from 'react-redux';
 import PropTypes from 'prop-types';
 
 import CalendarsContainer from '../../components/Calendars/Calendars';
+import Title from '../../components/Title/Title';
+import Caption from '../../components/Caption/Caption';
 import fetchAvailability from '../../store/actions/fetchAvailability.action';
+
+import classes from './Availability.module.css';
 
 export class Availability extends Component {
   componentDidMount() {
@@ -14,7 +18,9 @@ export class Availability extends Component {
   render() {
     const { loading } = this.props;
     return (
-      <div>
+      <div className={classes.Availability}>
+        <Title />
+        <Caption />
         { loading ? 'Loading' : <CalendarsContainer />}
       </div>
     );
