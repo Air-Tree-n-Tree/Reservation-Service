@@ -22,7 +22,7 @@ jobs:
 workflows:
   build-and-test:
     jobs:
-      - build-and-test
+      - test-client
   lint:
     jobs:
       - eslint
