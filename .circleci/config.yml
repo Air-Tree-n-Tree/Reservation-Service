@@ -20,7 +20,7 @@ jobs:
       - run: npm install
       - run: npm run eslint
 workflows:
-  build-and-test:
+  test-client:
     jobs:
       - test-client
   lint:
