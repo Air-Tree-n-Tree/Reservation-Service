@@ -2,7 +2,7 @@ const moment = require('moment');
 const random = require('./random');
 const Availabilty = require('../models/Availability');
 
-const generateAvailability = (roomId) => {
+const generateAvailability = (roomId, daysToGenerate) => {
   const minNights = random.valueInRange(1, 4);
   const maxNights = random.valueInRange(minNights + 1, 30);
   const minGuests = random.valueInRange(1, 4);
@@ -17,7 +17,7 @@ const generateAvailability = (roomId) => {
   const reservations = [];
   const dayZero = moment('2000-01-01');
   let day = moment().diff(dayZero, 'days');
-  const end = day + 120;
+  const end = day + daysToGenerate; // How many days in advance to seed
   while (day < end) {
     const length = random.valueInRange(minNights, maxNights + 1);
     const startDate = day + random.valueInRange(0, maxNights);
