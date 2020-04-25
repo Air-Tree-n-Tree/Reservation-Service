@@ -109,6 +109,7 @@ Starts and watches the proxy service server.
 | minGuests | `Number` | Minimum number of guests allowed for a reservation.
 | maxGuests | `Number` | Maximum number of guests allowed for a reservation.
 | maxInfants | `Number` | Maximum  number of infants allowed for a reservation.
+| minInfants | `Number` | Just kidding (I think)
 
 
 ```
