@@ -34,11 +34,7 @@ The modules mount to:
 
 ## scripts
 
-`start-server`:
-
-Starts the proxy service server locally.
-
----
+### client
 
 `build-dev`:
 
@@ -58,6 +54,8 @@ Starts a webpack-dev-server on port 9000.
 
 ---
 
+### server
+
 `seed`:
 
 Creates a mongo database `room-reservations`
@@ -65,6 +63,12 @@ Creates a mongo database `room-reservations`
 
 Creates and seeds collection `availabilities`
 with 100 documents of dummy reservation data.
+
+---
+
+`start-server`:
+
+Starts the proxy service server locally.
 
 ---
 
