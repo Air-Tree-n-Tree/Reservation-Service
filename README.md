@@ -123,7 +123,7 @@ Starts and watches the proxy service server.
             ...
         ],
         "pricesPerGuests": [
-            0,
+            50,
             100,
             150
         ],
