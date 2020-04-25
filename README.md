@@ -66,14 +66,14 @@ with 100 documents of dummy reservation data.
 
 ---
 
-`start-server`:
+`start`:
 
 Starts the proxy service server locally.
 
 ---
 
 
-`dev-server`:
+`dev`:
 
 __`nodemon` is required for `dev-server` and is not included in the package dependencies. `nodemon` must be installed separately or globally.__ 
 
