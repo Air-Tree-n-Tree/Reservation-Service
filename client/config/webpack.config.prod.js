@@ -4,7 +4,7 @@ const { ROOT } = require('../constants/PATHS');
 module.exports = {
   mode: 'production',
   context: path.resolve(ROOT),
-  entry: path.resolve(ROOT, 'index.prod.jsx'),
+  entry: path.resolve(ROOT, 'src', 'index.prod.jsx'),
   output: {
     filename: 'reservationsBundle.js',
     path: path.resolve(ROOT, 'public'),

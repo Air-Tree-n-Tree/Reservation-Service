@@ -5,7 +5,7 @@ const { ROOT } = require('../constants/PATHS');
 module.exports = {
   mode: 'development',
   context: path.resolve(ROOT),
-  entry: path.resolve(ROOT, 'index.dev.jsx'),
+  entry: path.resolve(ROOT, 'src', 'index.dev.jsx'),
   plugins: [
     new HtmlWebpackPlugin({
       template: path.resolve(ROOT, 'templates', 'index.html'),

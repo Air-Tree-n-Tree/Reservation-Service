@@ -2,26 +2,25 @@ import React from 'react';
 import ReactDOM from 'react-dom';
 
 import { Provider } from 'react-redux';
-import store from './src/store/store.prod';
+import store from './store/store';
 
-import './src/styles/style.css';
+import './styles/style.css';
 
-import AvailabilityContainer from './src/containers/Availability/Availability';
-import PriceSummary from './src/containers/PriceSummary/PriceSummary';
+import AvailabilityContainer from './containers/Availability/Availability';
+import PriceSummary from './containers/PriceSummary/PriceSummary';
 
-const params = new URLSearchParams(window.location.search);
-const roomId = params.get('roomId') || 0;
+const randomRoom = Math.floor(Math.random() * 100);
 
 const availability = (
   <Provider store={store}>
-    <AvailabilityContainer roomId={roomId} />
+    <AvailabilityContainer roomId={randomRoom} />
   </Provider>
 );
 const availabilityMount = document.getElementById('availability');
 
 const priceSummary = (
   <Provider store={store}>
-    <PriceSummary roomId={roomId} />
+    <PriceSummary roomId={randomRoom} />
   </Provider>
 );
 const priceSummaryMount = document.getElementById('priceSummary');
