@@ -1,8 +1,8 @@
-const readline = require('readline');
+import readline from 'readline';
 
-const connection = require('./connection');
-const Availability = require('./models/Availability');
-const generateAvailability = require('./utils/generateAvailability');
+import connection from './connection';
+import Availability from './models/Availability';
+import generateAvailability from './utils/generateAvailability';
 
 const rl = readline.createInterface({
   input: process.stdin,

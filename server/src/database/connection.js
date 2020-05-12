@@ -1,4 +1,4 @@
-const mongoose = require('mongoose');
+import mongoose from 'mongoose';
 
 const start = () => (
   mongoose.connect('mongodb://database:27017/room-reservations', {
@@ -18,7 +18,7 @@ const stop = () => (
   mongoose.disconnect()
 );
 
-module.exports = {
+export default {
   start,
   stop,
 };

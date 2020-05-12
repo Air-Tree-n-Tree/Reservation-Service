@@ -1,6 +1,6 @@
-const moment = require('moment');
-const random = require('./random');
-const Availabilty = require('../models/Availability');
+import moment from 'moment';
+import random from './random';
+import Availabilty from '../models/Availability';
 
 const generateAvailability = (roomId, daysToGenerate) => {
   const minNights = random.valueInRange(1, 4);
@@ -40,4 +40,4 @@ const generateAvailability = (roomId, daysToGenerate) => {
   });
 };
 
-module.exports = generateAvailability;
+export default generateAvailability;

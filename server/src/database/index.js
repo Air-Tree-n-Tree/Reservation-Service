@@ -1,13 +1,12 @@
-const connection = require('./connection');
+import connection from './connection';
+import Availability from './models/Availability';
 
 connection.start();
-
-const Availability = require('./models/Availability');
 
 const getRoomAvailabilitiy = (roomId) => (
   Availability.findOne({ roomId }, '-reservations._id') // This projection omits the reservation UUID
 );
 
-module.exports = {
+export default {
   getRoomAvailabilitiy,
 };

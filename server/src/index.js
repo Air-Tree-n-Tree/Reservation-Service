@@ -1,4 +1,4 @@
-const app = require('./src/server');
+import app from './server';
 
 app.listen(3002, () => {
   console.log('Server listening on: 3002');

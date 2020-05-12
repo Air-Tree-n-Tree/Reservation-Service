@@ -1,5 +1,5 @@
-const express = require('express');
-const db = require('./database');
+import express from 'express';
+import db from './database';
 
 const app = express();
 const allowedOrigins = [
@@ -32,4 +32,4 @@ app.get('/api/reservations/:roomId', (req, res) => {
     });
 });
 
-module.exports = app;
+export default app;

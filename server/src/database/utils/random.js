@@ -7,6 +7,6 @@ const valueInRange = (min, max) => (
   min + Math.floor(Math.random() * (max - min))
 );
 
-module.exports = {
+export default {
   valueInRange,
 };
