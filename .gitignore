@@ -3,6 +3,7 @@ node_modules
 
 # Bundles
 public
+build
 
 # Workspace configs
 .vscode

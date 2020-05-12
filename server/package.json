@@ -6,8 +6,9 @@
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
     "start": "node index.js",
-    "dev": "env NODE_ENV=development nodemon index.js",
-    "seed": "node src/database/seed.js"
+    "dev": "nodemon index.js",
+    "seed": "node src/database/seed.js",
+    "build": "babel src -d build"
   },
   "author": "",
   "license": "ISC",
@@ -16,5 +17,11 @@
     "express": "^4.17.1",
     "mongoose": "^5.9.4",
     "moment": "^2.24.0"
+  },
+  "devDependencies": {
+    "@babel/cli": "^7.8.4",
+    "@babel/core": "^7.9.6",
+    "@babel/preset-env": "^7.9.6",
+    "@babel/preset-react": "^7.9.4"
   }
 }
