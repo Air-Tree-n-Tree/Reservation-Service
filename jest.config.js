@@ -10,6 +10,6 @@ module.exports = {
   testEnvironment: 'node',
   setupFilesAfterEnv: [
     './node_modules/jest-enzyme/lib/index.js', // Setup jest-enzyme library
-    path.resolve(__dirname, 'tests', 'setupTests.js'), // Configure enzyme react adapter
+    path.resolve(__dirname, 'client', 'tests', 'setupTests.js'), // Configure enzyme react adapter
   ],
 };
