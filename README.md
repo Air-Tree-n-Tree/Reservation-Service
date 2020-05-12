@@ -36,50 +36,57 @@ The modules mount to:
 
 ## scripts
 
-### client
-
-`build-dev`:
+`webpack-dev`:
 
 Build development bundle of client module.
 
 ---
 
-`build-prod`:
+`webpack-prod`:
 
 Build production bundle of client module.
 
 ---
 
-`start-dev`:
+`webpack-server`:
 
 Starts a webpack-dev-server on port 9000.
 
 ---
 
-### server
-
 `seed`:
 
-Creates a mongo database `room-reservations`
-
+Creates a mongo database `room-reservations` in docker database
 
 Creates and seeds collection `availabilities`
-with 100 documents of dummy reservation data.
+for 100 rooms
+
+---
+
+`seed-dev`:
+
+Identical to `seed` but seeds a local mongo database
 
 ---
 
 `start`:
 
-Starts the proxy service server locally.
+Builds and starts the application
 
 ---
 
-
 `dev`:
 
-__`nodemon` is required for `dev-server` and is not included in the package dependencies. `nodemon` must be installed separately or globally.__ 
+`nodemon` is required for `dev` and is not included in the package dependencies. `nodemon` must be installed separately or globally.
 
-Starts and watches the proxy service server.
+
+Builds and watches client and server. Starts server with hot reloading.
+
+---
+
+`build`:
+
+Builds the application
 
 ---
 
