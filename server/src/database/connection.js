@@ -1,10 +1,13 @@
 import mongoose from 'mongoose';
 
 const start = () => (
-  mongoose.connect('mongodb://database:27017/room-reservations', {
-    useNewUrlParser: true,
-    useUnifiedTopology: true,
-  })
+  mongoose.connect(
+    `mongodb://${process.env.NODE_ENV === 'development' ? 'localhost' : 'database'}:27017/room-reservations`,
+    {
+      useNewUrlParser: true,
+      useUnifiedTopology: true,
+    },
+  )
     .then(() => {
       console.log('Connected to mongo database: room-reservations');
     })
