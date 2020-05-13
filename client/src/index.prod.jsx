@@ -11,20 +11,21 @@ import PriceSummary from './containers/PriceSummary/PriceSummary';
 
 const params = new URLSearchParams(window.location.search);
 const roomId = params.get('roomId') || 0;
+const { __preloadedState__ } = window;
 
 const availability = (
-  <Provider store={store()}>
+  <Provider store={store(__preloadedState__)}>
     <AvailabilityContainer roomId={roomId} />
   </Provider>
 );
 const availabilityMount = document.getElementById('availability');
 
 const priceSummary = (
-  <Provider store={store}>
+  <Provider store={store()}>
     <PriceSummary roomId={roomId} />
   </Provider>
 );
 const priceSummaryMount = document.getElementById('priceSummary');
 
-ReactDOM.render(availability, availabilityMount);
+ReactDOM.hydrate(availability, availabilityMount);
 ReactDOM.render(priceSummary, priceSummaryMount);
