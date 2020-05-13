@@ -1,6 +1,5 @@
-import React, { Component } from 'react';
+import React from 'react';
 import { connect } from 'react-redux';
-import PropTypes from 'prop-types';
 
 import CalendarsContainer from '../../components/Calendars/Calendars';
 import Title from '../../components/Title/Title';
