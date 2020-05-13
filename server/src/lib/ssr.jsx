@@ -20,8 +20,6 @@ const ssr = (data, roomId) => {
 
   const preloadedState = newStore.getState();
 
-  console.log(preloadedState);
-
   return {
     rendered,
     preloadedState,
