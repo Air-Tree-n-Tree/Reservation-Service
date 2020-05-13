@@ -12,7 +12,7 @@ import PriceSummary from './containers/PriceSummary/PriceSummary';
 const randomRoom = Math.floor(Math.random() * 100);
 
 const availability = (
-  <Provider store={store}>
+  <Provider store={store()}>
     <AvailabilityContainer roomId={randomRoom} />
   </Provider>
 );

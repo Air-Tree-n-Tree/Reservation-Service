@@ -13,7 +13,7 @@ const params = new URLSearchParams(window.location.search);
 const roomId = params.get('roomId') || 0;
 
 const availability = (
-  <Provider store={store}>
+  <Provider store={store()}>
     <AvailabilityContainer roomId={roomId} />
   </Provider>
 );
