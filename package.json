@@ -11,7 +11,7 @@
     "webpack-server": "webpack-dev-server --config client/config/webpack.config.dev.js",
     "build": "babel client/src -d build/client/src --copy-files && babel server/src -d build/server/src --copy-files",
     "start": "npm run build && node build/server/src/index.js",
-    "dev": "concurrently \"babel -w client/src -d build/client/src\" \"babel server/src -d build/server/src\" \"env NODE_ENV=development nodemon build/server/src/index.js\"",
+    "dev": "concurrently \"babel -w client/src -d build/client/src\" \"babel -w server/src -d build/server/src\" \"env NODE_ENV=development nodemon build/server/src/index.js\"",
     "seed": "node build/server/src/database/seed.js",
     "seed-dev": "env NODE_ENV=development npm run seed"
   },
