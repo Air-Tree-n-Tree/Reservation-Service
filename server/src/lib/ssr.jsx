@@ -12,7 +12,7 @@ const ssr = (data, roomId) => {
     data,
   });
 
-  const html = renderToString(
+  const rendered = renderToString(
     <Provider store={newStore}>
       <App roomId={roomId} />
     </Provider>,
@@ -23,7 +23,7 @@ const ssr = (data, roomId) => {
   console.log(preloadedState);
 
   return {
-    html,
+    rendered,
     preloadedState,
   };
 };
