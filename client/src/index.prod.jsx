@@ -6,21 +6,21 @@ import store from './store/prod.store';
 
 import './styles/style.css';
 
-import AvailabilityContainer from './containers/Availability/Availability';
+import Availability from './containers/Availability/Availability';
 import PriceSummary from './containers/PriceSummary/PriceSummary';
 
 const { __preloadedState__ } = window;
 
 const availability = (
   <Provider store={store(__preloadedState__)}>
-    <AvailabilityContainer roomId={roomId} />
+    <Availability />
   </Provider>
 );
 const availabilityMount = document.getElementById('availability');
 
 const priceSummary = (
   <Provider store={store()}>
-    <PriceSummary roomId={roomId} />
+    <PriceSummary />
   </Provider>
 );
 const priceSummaryMount = document.getElementById('priceSummary');
