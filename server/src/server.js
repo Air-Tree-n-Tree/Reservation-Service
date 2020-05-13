@@ -1,5 +1,6 @@
 import express from 'express';
 import db from './database';
+import ssr from './lib/ssr';
 
 const app = express();
 const allowedOrigins = [
@@ -8,12 +9,24 @@ const allowedOrigins = [
 ];
 
 // Allow access from client origin
-app.use('/api/reservations/', (req, res, next) => {
+app.use('/', (req, res, next) => {
   const { origin } = req.headers;
   if (allowedOrigins.includes(origin)) {
     res.setHeader('Access-Control-Allow-Origin', origin);
   }
   next();
+});
+
+app.get('/room/:roomId$', (req, res) => {
+  const { roomId } = req.params;
+  db.getRoomAvailabilitiy(roomId)
+    .then((doc) => {
+      res.send(ssr(doc, roomId));
+    })
+    .catch((reason) => {
+      console.log(reason);
+      res.sendStatus(500);
+    });
 });
 
 app.get('/api/reservations/:roomId', (req, res) => {
