@@ -9,8 +9,6 @@ import './styles/style.css';
 import AvailabilityContainer from './containers/Availability/Availability';
 import PriceSummary from './containers/PriceSummary/PriceSummary';
 
-const params = new URLSearchParams(window.location.search);
-const roomId = params.get('roomId') || 0;
 const { __preloadedState__ } = window;
 
 const availability = (
