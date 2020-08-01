@@ -76,11 +76,11 @@ describe('Date status selector', () => {
 
   it('should deduce checkoutOnly', () => {
     const reservedDates = [];
-    reservedDates[offsetDate(5)] = 'unavailable';
+    reservedDates[offsetDate(5)] = 'checkoutOnly';
     const result = dateStatusSelectors({
       ...datesState,
       reservedDates,
-    }, offsetDate(4));
+    }, offsetDate(5));
     expect(result).toBe('checkoutOnly');
   });
 });
