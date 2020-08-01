@@ -1,9 +1,8 @@
 import axios from 'axios';
 
-const domain = process.env.development ? 'http://localhost:3002' : '';
-
-const requestAvailability = (roomId) => (
-  axios.get(`${domain}/api/reservations/${roomId}`)
-);
+const requestAvailability = (roomId) => {
+  const domain = window.env === 'development' ? 'http://localhost:3002' : '';
+  return axios.get(`${domain}/api/reservations/${roomId}`);
+};
 
 export default requestAvailability;

@@ -9,21 +9,26 @@ import './src/styles/style.css';
 import AvailabilityContainer from './src/containers/Availability/Availability';
 import PriceSummary from './src/containers/PriceSummary/PriceSummary';
 
-const randomRoom = Math.floor(Math.random() * 100);
+const init = () => {
+  const randomRoom = Math.floor(Math.random() * 100);
 
-const availability = (
-  <Provider store={store}>
-    <AvailabilityContainer roomId={randomRoom} />
-  </Provider>
-);
-const availabilityMount = document.getElementById('availability');
+  const availability = (
+    <Provider store={store}>
+      <AvailabilityContainer roomId={randomRoom} />
+    </Provider>
+  );
+  const availabilityMount = document.getElementById('availability');
 
-const priceSummary = (
-  <Provider store={store}>
-    <PriceSummary roomId={randomRoom} />
-  </Provider>
-);
-const priceSummaryMount = document.getElementById('priceSummary');
+  const priceSummary = (
+    <Provider store={store}>
+      <PriceSummary roomId={randomRoom} />
+    </Provider>
+  );
+  const priceSummaryMount = document.getElementById('priceSummary');
 
-ReactDOM.render(availability, availabilityMount);
-ReactDOM.render(priceSummary, priceSummaryMount);
+  ReactDOM.render(availability, availabilityMount);
+  ReactDOM.render(priceSummary, priceSummaryMount);
+};
+
+window.env = 'development';
+init();
