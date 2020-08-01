@@ -2,7 +2,7 @@ import moment from 'moment';
 import getLastPossibleCheckoutDate from '../../store/selectors/getLastPossibleCheckoutDate';
 
 const dateIsReserved = (date, reservedDates) => (
-  reservedDates[date] === 'unavailable'
+  reservedDates[date] === 'unavailable' && reservedDates[date - 1] === 'unavailable'
 );
 
 const dateHasPassed = (date) => (
