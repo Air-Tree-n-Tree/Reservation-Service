@@ -2,21 +2,16 @@ import moment from 'moment';
 import getLastPossibleCheckoutDate from '../../store/selectors/getLastPossibleCheckoutDate';
 
 const dateIsReserved = (date, reservedDates) => (
-  reservedDates[date] === 'unavailable' && reservedDates[date - 1] === 'unavailable'
+  reservedDates[date] === 'unavailable'
 );
 
 const dateHasPassed = (date) => (
   date < moment().diff(moment('2000-01'), 'days')
 );
 
-const dateIsCheckoutOnly = (date, reservedDates, minNights) => {
-  for (let i = 1; i <= minNights; i += 1) {
-    if (reservedDates[date + i] === 'unavailable') {
-      return true;
-    }
-  }
-  return false;
-};
+const dateIsCheckoutOnly = (date, reservedDates) => (
+  reservedDates[date] === 'checkoutOnly'
+);
 
 const dateDoesNotMeetMinNights = (date, checkinDate, minNights) => (
   date > checkinDate && date - checkinDate < minNights
@@ -46,7 +41,7 @@ const dateStatusSelector = (dates, date) => {
 
   const { selecting } = selection;
   const { minNights } = constraints;
-  if (selecting === 'checkin' && dateIsCheckoutOnly(date, reservedDates, minNights)) {
+  if (selecting === 'checkin' && dateIsCheckoutOnly(date, reservedDates)) {
     return 'checkoutOnly';
   }
 
