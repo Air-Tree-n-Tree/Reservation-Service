@@ -1,7 +1,9 @@
 const mongoose = require('mongoose');
 
+const domain = process.env.NODE_ENV === 'development' ? 'localhost' : 'database';
+
 const start = () => (
-  mongoose.connect('mongodb://database:27017/room-reservations', {
+  mongoose.connect(`mongodb://${domain}:27017/room-reservations`, {
     useNewUrlParser: true,
     useUnifiedTopology: true,
   })
